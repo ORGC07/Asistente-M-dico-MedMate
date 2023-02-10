@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="height: 100vh;">
   <form [formGroup]="loginForm">
     <ion-item>
       <ion-label position="fixed">Nombre Completo</ion-label>
@@ -39,16 +39,16 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 <ion-input formControlName="Especialidad"></ion-input>
 </ion-item>
 
-    <ion-item>
-      <ion-label position="fixed">Contraseña</ion-label>
-      <ion-input formControlName="password" type="password"></ion-input>
-    </ion-item>
+<ion-item>
+<ion-label position="fixed">Contraseña</ion-label>
+<ion-input formControlName="password" type="password"></ion-input>
+</ion-item>
 
-    <ion-button expand="block" [disabled]="!loginForm.valid" (click)="login()">Inicio</ion-button>
+<ion-button expand="block" [disabled]="!loginForm.valid" (click)="login()">Aceptar</ion-button>
 
-    <ion-button expand="block" [disabled]="!loginForm.valid" (click)="login()">Registrarse</ion-button>
   </form>
 </ion-content>
+
 
   `
 })
@@ -58,14 +58,17 @@ export class LoginComponent {
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       name: ['', Validators.required],
-      number: ['', Validators.required],
+      cedula: ['', Validators.required],
+      edad: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      especialidad: [''],
       password: ['', Validators.required]
     });
   }
 
   login() {
-    console.log(this.loginForm.value);
+    console.log('Login clicked!');
     // further processing here
   }
+
 }
