@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-tabs>
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="directorio">
+      <ion-icon name="people-sharp"></ion-icon>
+      Pacientes
+    </ion-tab-button>
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button tab="historial">
+      <ion-icon name="folder-open-sharp"></ion-icon>
+      Historial
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

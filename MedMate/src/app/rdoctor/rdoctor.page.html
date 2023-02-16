@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title></ion-title>
+    <ion-button fill="clear" slot="start">
+      <ion-back-button color="light" ></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioregistrod" (ngSubmit)="registrarse()">
+        <ion-item>
+          <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="nombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="apellido" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Cédula<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="cedula" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Especialidad<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="especialidad" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Correo electronico <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="correo" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="contraseña" type="password" minlength= 6></ion-input>
+        </ion-item>
+        <ion-button block color="primary" type="submit">
+          Login
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

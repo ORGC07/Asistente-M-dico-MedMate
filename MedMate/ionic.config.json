@@ -1,0 +1,7 @@
+{
+  "name": "MedMate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
