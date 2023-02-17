@@ -4,6 +4,57 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content class="ion-padding">
+
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Proximos medicamentos</ion-card-title>
+      <ion-card-subtitle>"Nombre de pastilla"</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      "Hora"
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card color="medium">
+    <ion-card-header>
+
+      <ion-card-title>Proximas citas</ion-card-title>
+      <ion-card-subtitle>"Nombre del especialista"</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item color="medium">
+          <ion-label>"Doctor: "</ion-label>
+        </ion-item>
+        <ion-item color="medium">
+          <ion-label>"Fecha: "</ion-label>
+        </ion-item>
+        <ion-item color="medium">
+          <ion-label>"Hora: "</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="top" horizontal="start">
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>
