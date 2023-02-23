@@ -21,4 +21,10 @@ export class AuthService {
     return this.auth.createUserWithEmailAndPassword(correo,contraseña)
     
   }
+
+  async getUid(){
+    const user = await this.auth.currentUser;
+    return user?.uid
+
+  }
 }

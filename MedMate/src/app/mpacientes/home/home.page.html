@@ -7,6 +7,23 @@
 
 <ion-content class="ion-padding">
 
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
   <ion-card color="medium">
     <ion-card-header>
       <ion-card-title>Proximos medicamentos</ion-card-title>
@@ -16,12 +33,8 @@
       "Hora"
     </ion-card-content>
   </ion-card>
-
-
-
   <ion-card color="medium">
     <ion-card-header>
-
       <ion-card-title>Proximas citas</ion-card-title>
       <ion-card-subtitle>"Nombre del especialista"</ion-card-subtitle>
     </ion-card-header>
@@ -40,21 +53,6 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-fab slot="fixed" vertical="top" horizontal="end">
-    <ion-fab-button size="small">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="end">
-      <ion-fab-button>
-        <ion-icon name="document"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="color-palette"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="globe"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+  
 
 </ion-content>

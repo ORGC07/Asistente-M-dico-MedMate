@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@angular/fire": "^7.5.0",
+    "@ionic-native/date-picker": "^5.36.0",
     "firebase": "9.9.1"
   }
 }
