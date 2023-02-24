@@ -1,15 +1,19 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-button fill="clear" slot="start">
-      <ion-back-button color="light"></ion-back-button>
+    <ion-button  slot="start" [routerLink]="['/login']">
+      <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card color="medium">
+  <ion-card color="primary">
   <ion-card-header>
-    <ion-card-title>Bienvenido "Nombre del paciente"</ion-card-title>
+    <ion-card-title>
+      <ion-list *ngIf="info">
+        <ion-label>Bienvenido/a {{info.nombre}} {{info.apellido}}</ion-label>
+      </ion-list> 
+    </ion-card-title>
   </ion-card-header>
 </ion-card>
 

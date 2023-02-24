@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       console.log("Usuario correcto")
       const Id = res.user?.uid;
       if (Id){
-        var pacientes = this.store.getDoc("Pacientes", Id).subscribe(res => { 
+       this.store.getDoc("Pacientes", Id).subscribe(res => { 
           if (res){
           this.info = res;
           if (this.info) {
@@ -49,7 +49,7 @@ export class LoginPage implements OnInit {
           
           } 
         });
-        var doctores = this.store.getDoc("Doctores", Id).subscribe(res => { 
+        this.store.getDoc("Doctores", Id).subscribe(res => { 
           if (res){
           this.info = res;
           if (this.info) {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { mainModule } from 'process';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { Reporte } from './../../models';
+import { Reporte } from '../../models';
 import { ɵNullViewportScroller } from '@angular/common';
 import { error } from 'console';
 

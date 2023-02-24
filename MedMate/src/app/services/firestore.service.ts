@@ -17,12 +17,13 @@ export class FirestoreService {
   getId(){
     return this.firestore.createId();
   }
+
   consultar<Tipo>(path: string){
     const collection = this.firestore.collection<Tipo>(path);
     return collection.valueChanges();
   }
 
-  getDoc(path: string, id: string){
-    return this.firestore.collection(path).doc(id).valueChanges();
+  getDoc<Tipo>(path: string, id: string){
+    return this.firestore.collection<Tipo>(path).doc(id).valueChanges();
   }
 }
