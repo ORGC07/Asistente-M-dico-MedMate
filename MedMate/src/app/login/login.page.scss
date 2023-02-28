@@ -1,0 +1,22 @@
+ion-item-divider 
+    {
+        border-top: 3px;
+        background: None;
+      }
+  
+
+  ion-checkbox {
+    --size: 10px;
+    --background-checked: clear;
+  }
+
+  //Fuera de uso
+  ion-checkbox::part(container) {
+    border-radius: 6px;
+    border: 2px solid blue;
+  }
+ //Fuera de uso
+
+ hr.solid {
+    border-top: 3px solid #bbb;
+  }

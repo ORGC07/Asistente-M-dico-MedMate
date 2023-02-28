@@ -1,38 +1,47 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title></ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
     <ion-card-header color="medium">
-      <ion-card-title>Login</ion-card-title>
+     
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="formulariologin">
+        <ion-item>
+          <ion-label color="primary" position="floating">Usuario</ion-label>
+          <ion-input autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Ingrese su Usuario" required="true"></ion-input>
+          <ion-icon name="person" color="primary" slot="start"></ion-icon>
+        </ion-item>
       <ion-item>
-        <ion-label position="floating">Usuario</ion-label>
-        <ion-input formControlName="user"></ion-input>
+        <ion-label color="primary" position="floating">Contraseña</ion-label>
+        <ion-input placeholder="Ingrese su Contraseña" required="true" formControlName="password" type="password"></ion-input>
+        <ion-icon name="Keypad-Outline" color="primary" slot="start"></ion-icon>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input formControlName="password" type="password"></ion-input>
-      </ion-item>
+
     </form>
-    <br>
-    <ion-button fill="clear" (click)="ingresar()">
+<br>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Recuerdame </ion-label>  
+    </ion-item>
+
+    <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+
+    <ion-button  color="primary" expand="block"  (click)="ingresar()">
       Ingresar
     </ion-button>
-    <ion-button fill="clear" [routerLink]="['/registro']">
+
+    <ion-button  color="primary" expand="block" [routerLink]="['/registro']">
       Registrarse
     </ion-button>
-    <ion-button fill="clear" [routerLink]="['/tabiniciald']">
-      Modulo doctores
-    </ion-button>
-    <ion-button fill="clear" [routerLink]="['/tabinicialp']">
-      Modulo pacientes
-    </ion-button>
+
+
+    <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+
     </ion-card-content>
   </ion-card>
    

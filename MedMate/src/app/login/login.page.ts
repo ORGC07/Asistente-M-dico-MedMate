@@ -18,7 +18,7 @@ import { AlertController } from '@ionic/angular';
 export class LoginPage implements OnInit {
 
   formulariologin: FormGroup;
-
+  info: {} | undefined;
   
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router,
@@ -38,18 +38,30 @@ export class LoginPage implements OnInit {
     if(res){
       console.log("Usuario correcto")
       const Id = res.user?.uid;
-      const pacientes = this.store.consultar("Pacientes").subscribe(res => {
-        console.log(res)
-        
-      });
-
-      console.log(pacientes);
-      const doctores = this.store.consultar("Doctores");
-
+      if (Id){
+       this.store.getDoc("Pacientes", Id).subscribe(res => { 
+          if (res){
+          this.info = res;
+          if (this.info) {
+            console.log(this.info)
+            this.router.navigate(['./tabinicialp']);
+          }
+          
+          } 
+        });
+        this.store.getDoc("Doctores", Id).subscribe(res => { 
+          if (res){
+          this.info = res;
+          if (this.info) {
+            console.log(this.info)
+            this.router.navigate(['./tabiniciald']);
+          }
+          
+          } 
+        });
       
-
       
-      this.router.navigate([''])
+      }  
 
     }
     
