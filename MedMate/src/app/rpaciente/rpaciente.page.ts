@@ -10,8 +10,6 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Router } from '@angular/router';
-import { paciente } from '../models/interface';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-rpaciente',
@@ -21,18 +19,6 @@ import { empty } from 'rxjs';
 export class RpacientePage implements OnInit {
 
   public formularioregistrop: FormGroup;
-
-  newpaciente: paciente= {
-    uid: "",
-    nombre: "",
-    apellido: "",
-    cedula: "",
-    fnacimiento: "",
-    edad: 0,
-    correo:"",
-    contraseña: "",
-    rol: "Paciente",
-  }
   
 
   constructor(private fb: FormBuilder, private alertController: AlertController, 
@@ -66,20 +52,21 @@ export class RpacientePage implements OnInit {
     }
 
     else{
-      
-      this.newpaciente.nombre = f.nombre,
-      this.newpaciente.apellido= f.apellido,
-      this.newpaciente.cedula= f.cedula,
-      this.newpaciente.fnacimiento= f.fnacimiento,
-      this.newpaciente.edad= f.edad,
-      this.newpaciente.correo= f.correo,
-      this.newpaciente.contraseña= f.contraseña,
-      this.newpaciente.rol= "Paciente";
-    
+      var paciente = {
+      uid: "",
+      nombre: f.nombre,
+      apellido: f.apellido,
+      cedula: f.cedula,
+      fnacimiento: f.fnacimiento,
+      edad: f.edad,
+      correo: f.correo,
+      contraseña: f.contraseña,
+      rol: "Paciente",
+    }
 
-    console.log(this.newpaciente)
+    console.log(paciente)
 
-    const res = await this.auth.registrar(this.newpaciente.correo, this.newpaciente.contraseña).catch(res => {
+    const res = await this.auth.registrar(paciente.correo, paciente.contraseña).catch(res => {
       console.log('error')
     })
 
@@ -87,10 +74,10 @@ export class RpacientePage implements OnInit {
       console.log("Usuario creado");
       const path = 'Pacientes'
       const Id = res.user!.uid;
-      this.newpaciente.uid = Id;
-      this.newpaciente.contraseña = "";
+      paciente.uid = Id;
+      paciente.contraseña = null;
 
-      await this.store.createDoc(this.newpaciente,path,Id)
+      await this.store.createDoc(paciente,path,Id)
 
       const alert2 = await this.alertController.create({
         header: 'Usuario creado',

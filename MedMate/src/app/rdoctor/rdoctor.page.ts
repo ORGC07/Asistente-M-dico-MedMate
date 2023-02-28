@@ -9,7 +9,6 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Router } from '@angular/router';
-import { doctor, paciente } from '../models/interface';
 
 @Component({
   selector: 'app-rdoctor',
@@ -19,18 +18,6 @@ import { doctor, paciente } from '../models/interface';
 export class RdoctorPage implements OnInit {
 
   formularioregistrod: FormGroup;
-
-  newdoctor : doctor = {
-    uid: "",
-    nombre: "",
-    apellido: "",
-    cedula: "",
-    especialidad: "",
-    correo: "",
-    contraseña: "",
-    rol: "Doctor",
-
-  }
 
   constructor(public fb: FormBuilder, public alertController: AlertController,
      private auth: AuthService, private store: FirestoreService, private router: Router ) {
@@ -76,16 +63,20 @@ export class RdoctorPage implements OnInit {
     // }
 
     else{
-      
-      this.newdoctor.nombre= f.nombre,
-      this.newdoctor.apellido= f.apellido,
-      this.newdoctor.cedula=f.cedula,
-      this.newdoctor.especialidad= f.especialidad,
-      this.newdoctor.correo= f.correo,
-      this.newdoctor.contraseña= f.contraseña,
-      this.newdoctor.rol= "Doctor";
+      var doctor = {
+        uid: "",
+        nombre: f.nombre,
+        apellido: f.apellido,
+        cedula: f.cedula,
+        especialidad: f.especialidad,
+        correo: f.correo,
+        contraseña: f.contraseña,
+        rol: "Doctor",
+      }
 
-      const res = await this.auth.registrar(this.newdoctor.correo, this.newdoctor.contraseña).catch(res => {
+    }
+    
+    const res = await this.auth.registrar(doctor.correo, doctor.contraseña).catch(res => {
       console.log('error');
     })
 
@@ -93,10 +84,10 @@ export class RdoctorPage implements OnInit {
       console.log("Usuario creado")
       const path = 'Doctores';
       const Id = res.user!.uid;
-      this.newdoctor.uid = Id;
-      this.newdoctor.contraseña = "";
+      doctor.uid = Id;
+      doctor.contraseña = null;
 
-      await this.store.createDoc(this.newdoctor, path, Id);
+      await this.store.createDoc(doctor, path, Id);
 
       const alert2 = await this.alertController.create({
         header: 'Usuario creado',
@@ -107,10 +98,9 @@ export class RdoctorPage implements OnInit {
       this.router.navigate(['../login'])
 
     }
-      
 
-    }
     
+      
   }
 
   ngOnInit() {
