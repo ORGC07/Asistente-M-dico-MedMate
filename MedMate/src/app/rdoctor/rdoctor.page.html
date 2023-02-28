@@ -14,32 +14,38 @@
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="formularioregistrod" (ngSubmit)="registrarse()">
-        <ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="nombre" type="text"></ion-input>
+          <ion-input placeholder="Ingrese su Nombre" required formControlName="nombre" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Apellido <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="apellido" type="text"></ion-input>
+          <ion-input placeholder="Ingrese su Apellido" required formControlName="apellido" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Cédula<ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="cedula" type="text"></ion-input>
+          <ion-input  placeholder="Ingrese su Numero de Cédula" required formControlName="cedula" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Especialidad<ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="especialidad" type="text"></ion-input>
+          <ion-input  placeholder="Ingrese su Especialidad" required formControlName="especialidad" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Correo electronico <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="correo" type="text"></ion-input>
+          <ion-input placeholder="Ingrese su Correo electronico" required formControlName="correo" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-item fill="solid">
           <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="contraseña" type="password" minlength= 6></ion-input>
+          <ion-input placeholder="Ingrese su Contraseña" required formControlName="contraseña" type="password" minlength= 6></ion-input>
         </ion-item>
-        <ion-button block color="primary" type="submit">
-          Login
+        <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+        <ion-button block position="Centered" color="primary" type="submit">
+          Aceptar
         </ion-button>
       </form>
     </ion-card-content>
