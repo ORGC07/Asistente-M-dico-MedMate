@@ -15,7 +15,7 @@ const routes: Routes = [
     {
     path: 'pacientes',
     loadChildren: () => import('./../../mdoctor/pacientes/pacientes.module').then( m => m.PacientesPageModule)
-  }
+  },
 
     ]
   }
