@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Reporte } from '../../models';
+import { MenuController } from '@ionic/angular';
+import { Reporte } from 'src/app/models/interface';
 
 @Component({
   selector: 'app-reportes',
@@ -8,8 +9,8 @@ import { Reporte } from '../../models';
 })
 export class ReportesComponent implements OnInit {
   @Input()reporte!: Reporte;
-  constructor() { }
+  constructor(public menuController: MenuController,) { }
 
   ngOnInit() {}
-
+ 
 }

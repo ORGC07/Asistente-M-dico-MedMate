@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { IonicModule } from '@ionic/angular';
-import { ComponentesModule } from '../componentes/componentes.module';
 import { RouterModule } from '@angular/router';
+import { ComponentesModule } from '../componentes/componentes.module';
 
 
 
@@ -14,8 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     IonicModule,
-    ComponentesModule,
     RouterModule,
+    ComponentesModule
   ]
 })
 export class PagesModule { }

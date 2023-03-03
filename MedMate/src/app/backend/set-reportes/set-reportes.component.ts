@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { mainModule } from 'process';
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { Reporte } from '../../models';
+import { FirestoreService } from 'src/app/services/firestore.services';
+
 import { ɵNullViewportScroller } from '@angular/common';
 import { error } from 'console';
+import { Reporte } from 'src/app/models/interface';
 
 @Component({
   selector: 'app-set-reportes',
@@ -12,7 +13,7 @@ import { error } from 'console';
   styleUrls: ['./set-reportes.component.scss'],
 })
 export class SetReportesComponent implements OnInit {
-  
+
   reporte: Reporte[] = [];
   newReportes!: Reporte;
 
@@ -45,7 +46,7 @@ export class SetReportesComponent implements OnInit {
   }
   leertRepo(){0
     this.firestoreService.getCollection<Reporte>(this.path).subscribe( res =>{
-          this.reporte = res; 
+          this.reporte = res;
     });
   }
   async deleteReporte(Reporte:Reporte){
@@ -93,7 +94,7 @@ export class SetReportesComponent implements OnInit {
       id: this.firestoreService.getId(),
       fecha: new Date()
     };
-  
+
   }
   async showLoading() {
      this.loading = await this.loadingCtrl.create({
@@ -115,5 +116,6 @@ export class SetReportesComponent implements OnInit {
 
     await toast.present();
   }
-  
+
 }
+

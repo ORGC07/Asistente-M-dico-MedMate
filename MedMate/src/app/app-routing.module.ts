@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SetReportesComponent } from './backend/set-reportes/set-reportes.component';
+import { PagesModule } from './pages/pages.module';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -7,6 +10,13 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path:'set-reportes' , component: SetReportesComponent
+  },
+  {
+    path:'lista-reporte' , component: HomeComponent
+  },
+  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)

@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="subtitulo">Informacion personal
+    <ion-title class="subtitulo">
+      Agregar Reporte
     </ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()">
-        <ion-icon slot="icon-only" color="primary" name="menu-outline"></ion-icon>
+        <ion-icon color="primary" slot="icon-only" name="menu-outline"></ion-icon>      
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div style="text-align: end; margin: 5px;" >
+  <div style="text-align: end; margin: 10px;" >
     <ion-button class="normal" (click)="nuevo()" color="dark">Nuevo</ion-button>
   </div>
   <div *ngIf="enablenewReportes">

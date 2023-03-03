@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Reporte } from 'src/app/models';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { Reporte } from 'src/app/models/interface';
+import { FirestoreService } from 'src/app/services/firestore.services';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class HomeComponent implements OnInit {
   reporte: Reporte[] = [];
 
-  constructor(public firestoreService:FirestoreService) { 
+  constructor(public firestoreService:FirestoreService,
+    public menuController: MenuController) { 
     this.loadReportes();
   }
   private path = 'reportes/';
@@ -21,5 +23,8 @@ export class HomeComponent implements OnInit {
         console.log(res);
         this.reporte = res;
     })
+  }
+  openMenu(){
+    this.menuController.toggle('main');
   }
 }
