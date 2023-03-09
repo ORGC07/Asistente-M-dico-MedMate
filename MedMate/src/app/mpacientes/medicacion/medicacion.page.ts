@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl,
   Validators, ReactiveFormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
-import { DatePicker } from '@ionic-native/date-picker';
 import { AlertController } from '@ionic/angular';
 import { time } from 'console';
 import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
