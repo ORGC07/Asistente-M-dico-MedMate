@@ -20,6 +20,15 @@ export interface paciente{
     correo: string,
     contraseña: string,
     rol: 'Paciente',
+    
+}
+
+export interface medicacion{
+    medicamento: string,
+    cdias: number,
+    fecha: string,
+    hora: number,
+    userid: string,
 }
 
 export interface Reporte{

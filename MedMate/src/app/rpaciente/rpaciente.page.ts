@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  ReactiveFormsModule,
   FormGroup,
   FormControl,
   Validators,
@@ -11,7 +12,6 @@ import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Router } from '@angular/router';
 import { paciente } from '../models/interface';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-rpaciente',
@@ -74,8 +74,7 @@ export class RpacientePage implements OnInit {
       this.newpaciente.edad= f.edad,
       this.newpaciente.correo= f.correo,
       this.newpaciente.contraseña= f.contraseña,
-      this.newpaciente.rol= "Paciente";
-    
+      this.newpaciente.rol= "Paciente",
 
     console.log(this.newpaciente)
 

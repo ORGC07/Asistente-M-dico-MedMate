@@ -18,9 +18,15 @@ const routes: Routes = [
     loadChildren: () => import('./../../mpacientes/historial/historial.module').then( m => m.HistorialPageModule)
   },
   {
+
+    path: 'medicamento',
+    loadChildren: () => import('./../../mpacientes/medicacion/medicacion.module').then(m => m.MedicacionPageModule)
+  },
+  {
     path: 'directorio',
     loadChildren: () => import('./../../mpacientes/directorio/directorio.module').then( m => m.DirectorioPageModule)
   },
+  
     ]
   }
 ];

@@ -38,4 +38,13 @@ export class TabinicialpPage implements OnInit {
     })
   }
 
+  async cerrar(){
+    this.router.navigate(['./login']);
+    await this.auth.cerrars    
+    }
+    
+  medicacion(){
+    this.router.navigate(['./medicacion']);
+    }
+
 }

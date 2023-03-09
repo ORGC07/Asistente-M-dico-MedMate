@@ -10,12 +10,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path:'set-reportes' , component: SetReportesComponent
-  },
-  {
-    path:'lista-reporte' , component: HomeComponent
-  },
+ 
   
   {
     path: 'login',
@@ -40,7 +35,11 @@ const routes: Routes = [
   {
     path: 'tabinicialp',
     loadChildren: () => import('./mpacientes/tabinicialp/tabinicialp.module').then( m => m.TabinicialpPageModule)
+  },  {
+    path: 'medicacion',
+    loadChildren: () => import('./mpacientes/medicacion/medicacion.module').then( m => m.MedicacionPageModule)
   },
+
 ];
 
 @NgModule({

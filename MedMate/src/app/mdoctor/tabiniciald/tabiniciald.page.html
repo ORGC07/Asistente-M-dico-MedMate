@@ -1,20 +1,53 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"></ion-menu-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-menu-toggle>
+    <ion-item button="true" detail="true" [routerLink]="['/tabiniciald']">
+      <ion-label class="normal">Pantalla principal</ion-label>
+      <ion-icon slot="start" name="home-outline"></ion-icon>
+    </ion-item>
+    
+    <ion-item button="true" detail="true" [routerLink]="['/set-reportes']">
+      <ion-label class="normal">Agregar reportes</ion-label>
+      <ion-icon slot="start" name="reader-outline"></ion-icon>
+    </ion-item>
+    
+    <ion-item button="true" detail="true" [routerLink]="['/lista-reporte']">
+      <ion-label class="normal">Lista reportes</ion-label>
+      <ion-icon slot="start" name="list-outline"></ion-icon>
+    </ion-item>
+    
+    <ion-item button="true" detail="true" (click)="cerrar()">
+      <ion-label class="normal">Cerrar Sesion</ion-label>
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+    </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+
 <ion-content>
   <ion-card color="primary">
-  <ion-card-header>
-    <ion-card-title>
-    </ion-card-title>
-  </ion-card-header>
-</ion-card>
+    <ion-card-header>
+      <ion-card-title>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>
+
 
 <ion-tabs>
   <ion-router-outlet></ion-router-outlet>

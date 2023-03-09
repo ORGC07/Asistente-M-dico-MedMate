@@ -22,6 +22,10 @@ export class AuthService {
     
   }
 
+  cerrars(){
+    return this.auth.signOut
+  }
+
   async getUid(){
     const user = await this.auth.currentUser;
     return user?.uid

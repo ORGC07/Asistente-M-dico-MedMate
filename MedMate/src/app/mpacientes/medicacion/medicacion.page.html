@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Medicacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="medicamentoform" (ngSubmit)="ingresar()">
+    <ion-item>
+      <ion-label position="floating">Medicamento <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="medicamento" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cuantos dias <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="cdias" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required value="number" formControlName="hora" type="time"></ion-input>
+    </ion-item>
+    <ion-button block color="primary" type="submit">
+      Aceptar
+    </ion-button>
+  </form>
+</ion-content>

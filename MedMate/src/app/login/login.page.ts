@@ -6,7 +6,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FirestoreService } from '../services/firestore.service';
 import { AlertController } from '@ionic/angular';
 
