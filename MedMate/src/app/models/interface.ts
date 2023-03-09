@@ -31,6 +31,21 @@ export interface medicacion{
     userid: string,
 }
 
+export interface especialidad{
+    especialidad: string,
+}
+
+export interface cita{
+    doctor: string,
+    iddoctor: string,
+    paciente: string,
+    idpaciente: string,
+    especialidad: string,
+    fecha: Date,
+    hora: number,
+
+}
+
 export interface Reporte{
     nombre: string;
     identificador: number;
