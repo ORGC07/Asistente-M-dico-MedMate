@@ -23,6 +23,11 @@ const routes: Routes = [
     loadChildren: () => import('./../../mpacientes/medicacion/medicacion.module').then(m => m.MedicacionPageModule)
   },
   {
+
+    path: 'a-citas',
+    loadChildren: () => import('./../../mpacientes/a-citas/a-citas.module').then(m => m.ACitasPageModule)
+  },
+  {
     path: 'directorio',
     loadChildren: () => import('./../../mpacientes/directorio/directorio.module').then( m => m.DirectorioPageModule)
   },

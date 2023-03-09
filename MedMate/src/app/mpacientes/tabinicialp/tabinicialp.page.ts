@@ -47,4 +47,8 @@ export class TabinicialpPage implements OnInit {
     this.router.navigate(['./medicacion']);
     }
 
+  acita(){
+    this.router.navigate(['./a-citas']);
+  }
+
 }

@@ -61,8 +61,7 @@ export class MedicacionPage implements OnInit {
 
       const alert = await this.alertcontroller.create({
         header: 'Datos incompletos',
-        message: 'Debe de ingresar todos los campos o asegurarse que su contraseña tenga minimo 6 caracteres',
-        buttons: ['Aceptar'],
+        message: 'Debe de ingresar todos los campos',
       });
 
       await alert.present();

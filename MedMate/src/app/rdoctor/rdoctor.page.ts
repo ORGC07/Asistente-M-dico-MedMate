@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { Router } from '@angular/router';
-import { doctor, paciente } from '../models/interface';
+import { doctor, especialidad, paciente } from '../models/interface';
 
 @Component({
   selector: 'app-rdoctor',
@@ -19,6 +19,8 @@ import { doctor, paciente } from '../models/interface';
 export class RdoctorPage implements OnInit {
 
   formularioregistrod: FormGroup;
+
+  especialidades: especialidad[] = [];
 
   newdoctor : doctor = {
     uid: "",
@@ -40,11 +42,24 @@ export class RdoctorPage implements OnInit {
       'nombre': new FormControl("",Validators.required),
       'apellido': new FormControl("",Validators.required),
       'cedula': new FormControl("",Validators.required),
-      'especialidad': new FormControl("",Validators.required),
       'correo': new FormControl("",Validators.required),
+      'especialidad': new FormControl("",Validators.required),
       'contraseña': new FormControl("",Validators.required),
     })
    }
+  
+  ngOnInit() {
+    this.getespecialidad()
+  }
+
+  getespecialidad(){
+    const path = 'Especialidades'
+    this.store.consultar<especialidad>(path).subscribe( res => {
+      if(res){
+        this.especialidades = res;
+      }
+    })
+  }
 
   async registrarse(){
 
@@ -113,7 +128,6 @@ export class RdoctorPage implements OnInit {
     
   }
 
-  ngOnInit() {
-  }
+  
 
 }
