@@ -13,8 +13,7 @@
     <ion-item>
       <ion-label position="floating">Doctor <ion-text color="danger">*</ion-text></ion-label>
       <ion-select formControlName="doctor" interface="popover" placeholder="Selecciona Doctor">
-        <ion-select-option *ngFor="let doctor of infodoctor"
-          [value]="doctor.uid">{{doctor.nombre}}</ion-select-option>
+        <ion-select-option *ngFor="let doctor of infodoctor" [value]="doctor.uid">{{doctor.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>

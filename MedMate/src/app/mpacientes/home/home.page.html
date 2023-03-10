@@ -25,7 +25,7 @@
   </ion-item-group>
 
 
-  <ion-item-group>
+  <ion-item-group *ngIf="dates">
     <ion-item-divider>
       <ion-label>
         <h1>
@@ -33,13 +33,13 @@
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item>
+    <ion-item *ngFor="let date of dates"> 
       <ion-item>
         <ion-label>
-          <h3><b>Especialista:</b> </h3>
-          <h4> <b>Doctor:</b> </h4>
-          <h4> <b>Fecha:</b> </h4>
-          <h4> <b>Hora:</b> </h4>
+          <h3><b>Especialidad:</b> {{date.especialidad}} </h3>
+          <h4> <b>Doctor:</b> {{date.doctor}}</h4>
+          <h4> <b>Fecha:</b> {{date.fecha}}</h4>
+          <h4> <b>Hora:</b> {{date.hora}}</h4>
         </ion-label>
       </ion-item>
     </ion-item>

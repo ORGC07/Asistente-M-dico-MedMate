@@ -19,10 +19,36 @@ import { FirestoreService } from "src/app/services/firestore.service";
 export class ACitasPage implements OnInit {
   public acitasform: FormGroup;
 
+  pathpaciente = "Pacientes";
+  pathdoctor = "Doctores";
   uidpaciente: any;
   uiddoctor: any;
-  infopaciente: paciente[] = [];
   infodoctor: doctor[] = [];
+  doctores: doctor[] = [];
+  pacientes: paciente[] = [];
+
+  doctor: doctor = {
+    uid: "",
+    nombre: "",
+    apellido: "",
+    cedula: "",
+    especialidad: "",
+    correo: "",
+    contraseña: "",
+    rol: "Doctor",
+  };
+  paciente: paciente = {
+    uid: "",
+    nombre: "",
+    apellido: "",
+    cedula: "",
+    fnacimiento: "",
+    edad: 0,
+    correo: "",
+    contraseña: "",
+    rol: "Paciente",
+  };
+
   newcita: cita = {
     doctor: "",
     iddoctor: "",
@@ -52,8 +78,7 @@ export class ACitasPage implements OnInit {
   }
 
   getdoctores() {
-    const path = "Doctores";
-    this.store.consultar<doctor>(path).subscribe((res) => {
+    this.store.consultar<doctor>(this.pathdoctor).subscribe((res) => {
       if (res) {
         this.infodoctor = res;
       }
@@ -61,40 +86,65 @@ export class ACitasPage implements OnInit {
   }
 
   async agregar() {
-    const f = this.acitasform.value;
+    var f = this.acitasform.value;
     const uid = await this.auth.getUid();
-    if (uid) {
-      this.uidpaciente = uid;
-    }
 
-    const pathpaciente = "Pacientes";
-    this.store.consultar<paciente>(pathpaciente).subscribe((res) => {
+    this.uiddoctor = f.doctor;
+
+    this.store.consultar<doctor>(this.pathdoctor).subscribe((res) => {
       if (res) {
-        this.infopaciente = res;
+        this.doctores = res;
+        this.doctores.forEach(async (docs) => {
+          if (docs.uid == this.uiddoctor) {
+            this.doctor = docs;
+            if (uid) {
+              this.uidpaciente = uid;
+              this.store
+                .consultar<paciente>(this.pathpaciente)
+                .subscribe((res) => {
+                  if (res) {
+                    this.pacientes = res;
+                    this.pacientes.forEach(async (pac) => {
+                      if (pac.uid == this.uidpaciente) {
+                        this.paciente = pac;
+                        if (this.acitasform.invalid) {
+                          const alert = await this.alertcontroller.create({
+                            header: "Datos incompletos",
+                            message: "Debe de ingresar todos los campos",
+                          });
+
+                          await alert.present();
+                          return;
+                        } else {
+                          this.newcita.doctor = this.doctor.nombre;
+                          this.newcita.especialidad = this.doctor.especialidad;
+                          this.newcita.fecha = f.fecha;
+                          this.newcita.hora = f.hora;
+                          this.newcita.iddoctor = this.doctor.uid;
+                          this.newcita.idpaciente = this.uidpaciente;
+                          this.newcita.paciente = this.paciente.nombre;
+
+                          console.log(this.newcita);
+
+                          
+                        }
+                      }
+                    });
+                  }
+                });
+            }
+          }
+        });
       }
     });
 
-    if (this.acitasform.invalid) {
-      const alert = await this.alertcontroller.create({
-        header: "Datos incompletos",
-        message: "Debe de ingresar todos los campos",
-      });
+    this.store.agregar(this.newcita, "Citas");
 
-      await alert.present();
-      return;
-    } else {
-      if (this.infopaciente) {
-        this.newcita.doctor = "";
-        this.newcita.especialidad = "";
-        this.newcita.fecha = f.fecha;
-        this.newcita.hora = f.hora;
-        this.newcita.iddoctor = f.infodoctor;
-        this.newcita.idpaciente = this.uidpaciente;
-        this.newcita.paciente = "";
+    const alert2 = await this.alertcontroller.create({
+      header: "Cita agregado",
+    });
 
-        console.log(this.newcita);
-        console.log(this.infodoctor)
-      }
-    }
+    await alert2.present();
+    this.router.navigate(["../tabinicialp"]);
   }
 }
