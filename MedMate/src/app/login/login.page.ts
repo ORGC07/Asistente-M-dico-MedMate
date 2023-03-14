@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../services/firestore.service';
 import { AlertController } from '@ionic/angular';
+import { AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginPage implements OnInit {
   
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router,
-    private store: FirestoreService, private alertcontroller: AlertController) {
+    private store: FirestoreService, private alertcontroller: AlertController, private menu: AppComponent) {
 
     this.formulariologin = this.fb.group({
       'user': new FormControl("", Validators.required),
@@ -77,7 +78,6 @@ export class LoginPage implements OnInit {
       return;
    }
    }
-
    
 
   ngOnInit() {

@@ -14,16 +14,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./../../mdoctor/home/home.module').then( m => m.HomePageModule)
     },
-    {
-    path: 'pacientes',
-    loadChildren: () => import('./../../mdoctor/pacientes/pacientes.module').then( m => m.PacientesPageModule)
-  },
-   {
-    path:'set-reportes' , component: SetReportesComponent
-  },
-  {
-    path:'lista-reporte' , component: HomeComponent
-  }
+    
 
     ]
   }

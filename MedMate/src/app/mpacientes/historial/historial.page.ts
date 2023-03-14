@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { __setFunctionName } from 'tslib';
 
 @Component({
   selector: 'app-historial',
@@ -10,6 +11,10 @@ export class HistorialPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(){
+    console.log("funciona")
   }
 
 }

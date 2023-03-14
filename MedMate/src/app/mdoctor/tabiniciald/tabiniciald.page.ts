@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.services';
 
@@ -12,7 +13,7 @@ export class TabinicialdPage implements OnInit {
   
 
   constructor( private auth: AuthService, private router: Router,
-    private store: FirestoreService) { }
+    private store: FirestoreService, private comp: AppComponent) { }
 
   ngOnInit() {
   }
@@ -26,5 +27,11 @@ export class TabinicialdPage implements OnInit {
     setreportes(){
       this.router.navigate(['./set-reportes'])
     }
+
+  menu(){
+    console.log("entro1")
+    this.comp.menu()
+
+  }
 
 }

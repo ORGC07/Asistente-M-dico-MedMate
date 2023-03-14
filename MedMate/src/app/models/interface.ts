@@ -46,6 +46,8 @@ export interface cita{
 
 }
 
+
+
 export interface Reporte{
     nombre: string;
     identificador: number;
