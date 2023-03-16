@@ -62,7 +62,8 @@ const routes: Routes = [
   {
     path: "pacientes",
     loadChildren: () =>
-      import("./mdoctor/pacientes/pacientes.module").then((m) => m.PacientesPageModule
+      import("./mdoctor/pacientes/pacientes.module").then(
+        (m) => m.PacientesPageModule
       ),
   },
   {
@@ -72,6 +73,44 @@ const routes: Routes = [
   {
     path: "lista-reporte",
     component: HomeComponent,
+  },
+  {
+    path: "homed",
+    loadChildren: () =>
+      import("./mdoctor/home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+    path: "historial",
+    loadChildren: () =>
+      import("./mpacientes/historial/historial.module").then(
+        (m) => m.HistorialPageModule
+      ),
+  },
+  {
+    path: "medicamento",
+    loadChildren: () =>
+      import("./mpacientes/medicacion/medicacion.module").then(
+        (m) => m.MedicacionPageModule
+      ),
+  },
+  {
+    path: "a-citas",
+    loadChildren: () =>
+      import("./mpacientes/a-citas/a-citas.module").then(
+        (m) => m.ACitasPageModule
+      ),
+  },
+  {
+    path: "home",
+    loadChildren: () =>
+      import("./mpacientes/home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+    path: "directorio",
+    loadChildren: () =>
+      import("./mpacientes/directorio/directorio.module").then(
+        (m) => m.DirectorioPageModule
+      ),
   },
 ];
 

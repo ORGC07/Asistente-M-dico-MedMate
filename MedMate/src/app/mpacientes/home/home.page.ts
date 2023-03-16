@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonFooter } from '@ionic/angular';
+import { AppComponent } from 'src/app/app.component';
 import { cita, medicacion } from 'src/app/models/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -34,7 +35,8 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     private auth: AuthService,
-    private store: FirestoreService
+    private store: FirestoreService,
+    private comp: AppComponent
   ) {}
 
   async ngOnInit() {
@@ -43,8 +45,11 @@ export class HomePage implements OnInit {
       this.uid = uid;
       this.medicamentos();
       this.citas();
+      console.log("entro1");
+      this.comp.menu();
     }
   }
+
 
   medicamentos() {
     const path = "Medicamentos";

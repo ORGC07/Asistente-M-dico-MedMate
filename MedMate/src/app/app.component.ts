@@ -12,10 +12,11 @@ import { IonApp, IonNav, NavController } from "@ionic/angular";
 })
 export class AppComponent {
   uid = "";
-  pacientes: paciente | undefined;
-  doctores: doctor | undefined;
+  public pacientes: paciente | undefined;
+  public doctores: doctor | undefined;
+  public rold = "Doctor";
+  public rolp = "Paciente";
   pages: any;
-  
 
   @ViewChild(IonNav)
   nav!: IonNav;
@@ -24,10 +25,10 @@ export class AppComponent {
     private auth: AuthService,
     private router: Router,
     private store: FirestoreService,
-    public navCtrl: NavController,
+    public navCtrl: NavController
   ) {}
 
-  async menu(){
+  async menu() {
     const uid = await this.auth.getUid();
     if (uid) {
       this.uid = uid;
@@ -64,18 +65,14 @@ export class AppComponent {
 
       this.openPage("tabiniciald");
     }
-
   }
 
-
-  openPage(page: string){
+  openPage(page: string) {
     this.router.navigate([page]);
-
   }
 
-  logout(){
+  logout() {
     this.auth.cerrars();
     this.router.navigate(["./login"]);
-
   }
 }

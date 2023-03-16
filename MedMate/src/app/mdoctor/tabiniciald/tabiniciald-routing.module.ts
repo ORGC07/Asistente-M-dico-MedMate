@@ -10,10 +10,7 @@ const routes: Routes = [
     path: '',
     component: TabinicialdPage,
     children: [
-      {
-    path: 'home',
-    loadChildren: () => import('./../../mdoctor/home/home.module').then( m => m.HomePageModule)
-    },
+      
     
 
     ]
