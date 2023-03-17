@@ -7,7 +7,17 @@ const routes: Routes = [
   {
     path: '',
     component: LoginPage
-  }
+  },
+  {
+  path: "home",
+    loadChildren: () =>
+      import("./../mpacientes/home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+  path: "homed",
+    loadChildren: () =>
+      import("./../mdoctor/home/home.module").then((m) => m.HomePageModule),
+  },
 ];
 
 @NgModule({

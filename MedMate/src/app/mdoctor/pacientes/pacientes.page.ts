@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-pacientes',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacientesPage implements OnInit {
 
-  constructor() { }
+  constructor( private comp: AppComponent) { }
 
   ngOnInit() {
+    this.comp.menu();
   }
 
 }

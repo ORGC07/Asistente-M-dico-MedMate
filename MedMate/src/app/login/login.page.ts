@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
           this.info = res;
           if (this.info) {
             console.log(this.info)
-            this.router.navigate(['./tabinicialp']);
+            this.router.navigate(['home']);
           }
           
           } 
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
           this.info = res;
           if (this.info) {
             console.log(this.info)
-            this.router.navigate(['./tabiniciald']);
+            this.router.navigate(['homed']);
           }
           
           } 

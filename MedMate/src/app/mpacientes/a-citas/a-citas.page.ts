@@ -101,12 +101,12 @@ export class ACitasPage implements OnInit {
               this.uidpaciente = uid;
               this.store
                 .consultar<paciente>(this.pathpaciente)
-                .subscribe((res) => {
-                  if (res) {
-                    this.pacientes = res;
-                    this.pacientes.forEach(async (pac) => {
-                      if (pac.uid == this.uidpaciente) {
-                        this.paciente = pac;
+                .subscribe((pac) => {
+                  if (pac) {
+                    this.pacientes = pac;
+                    this.pacientes.forEach(async (pac2) => {
+                      if (pac2.uid == this.uidpaciente) {
+                        this.paciente = pac2;
                         if (this.acitasform.invalid) {
                           const alert = await this.alertcontroller.create({
                             header: "Datos incompletos",
@@ -126,7 +126,14 @@ export class ACitasPage implements OnInit {
 
                           console.log(this.newcita);
 
-                          
+                          this.store.agregar(this.newcita, "Citas");
+
+                          const alert2 = await this.alertcontroller.create({
+                            header: "Cita agregado",
+                          });
+
+                          await alert2.present();
+                          this.router.navigate(["../home"]);
                         }
                       }
                     });
@@ -137,14 +144,5 @@ export class ACitasPage implements OnInit {
         });
       }
     });
-
-    this.store.agregar(this.newcita, "Citas");
-
-    const alert2 = await this.alertcontroller.create({
-      header: "Cita agregado",
-    });
-
-    await alert2.present();
-    this.router.navigate(["../tabinicialp"]);
   }
 }

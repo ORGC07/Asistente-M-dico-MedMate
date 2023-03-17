@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonFooter } from '@ionic/angular';
+import { AlertController, IonFooter } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
-import { cita, medicacion } from 'src/app/models/interface';
+import { cita, medicacion, paciente } from 'src/app/models/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
@@ -12,6 +12,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
+
   infom: medicacion = {
     medicamento: "",
     cdias: 0,
@@ -28,6 +29,7 @@ export class HomePage implements OnInit {
     fecha: new Date(),
     hora: 0,
   };
+  info: paciente = null!;
   drugs: any[] = [];
   dates: any[] = [];
   uid: any;
@@ -36,7 +38,8 @@ export class HomePage implements OnInit {
     private router: Router,
     private auth: AuthService,
     private store: FirestoreService,
-    private comp: AppComponent
+    private comp: AppComponent,
+    private alertController: AlertController
   ) {}
 
   async ngOnInit() {
@@ -47,8 +50,25 @@ export class HomePage implements OnInit {
       this.citas();
       console.log("entro1");
       this.comp.menu();
-    }
-  }
+      const path = "Pacientes";
+      this.store.getDoc<paciente>(path, uid).subscribe(async (res) => {
+      if (res) {
+        this.info = res;
+        console.log(this.info);
+        const alert = await this.alertController.create({
+          header: "Bienvenido",
+          message: this.info.nombre +" "+ this.info.apellido,
+          buttons: ["Aceptar"],
+        });
+
+        await alert.present();
+        return;
+      } });
+      
+      
+      
+  }}
+
 
 
   medicamentos() {
@@ -73,7 +93,7 @@ export class HomePage implements OnInit {
         res.forEach((r) => {
           if (r.idpaciente == this.uid) {
             this.infoc = r;
-            this.dates.push(this.infom), console.log(this.dates);
+            this.dates.push(this.infoc), console.log(this.dates);
           }
         });
       }
