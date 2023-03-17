@@ -84,7 +84,7 @@ export class MedicacionPage implements OnInit {
       });
 
       await alert2.present();
-      this.router.navigate(['../tabinicialp'])
+      this.router.navigate(['../home'])
 
     }
       
