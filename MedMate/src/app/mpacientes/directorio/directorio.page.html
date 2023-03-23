@@ -8,4 +8,22 @@
 
 <ion-content>
 
+  <ion-item-group *ngIf="doctores">
+    <ion-item-divider>
+      <ion-label>
+        <ion-button (click)="acita()" expand="block"  shape="round">
+          Agendar cita
+        </ion-button>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let doctor of doctores">
+      <ion-item>
+        <ion-label>
+          <h2>Dr.{{doctor.nombre}} {{doctor.apellido}}</h2>
+          <h3><b>Especialidad:</b> {{doctor.especialidad}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-item>
+  </ion-item-group>
+
 </ion-content>
