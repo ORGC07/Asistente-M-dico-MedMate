@@ -89,6 +89,8 @@ export class ACitasPage implements OnInit {
     var f = this.acitasform.value;
     const uid = await this.auth.getUid();
 
+    let citaCreada = false; 
+
     this.uiddoctor = f.doctor;
 
     this.store.consultar<doctor>(this.pathdoctor).subscribe((res) => {
@@ -116,24 +118,28 @@ export class ACitasPage implements OnInit {
                           await alert.present();
                           return;
                         } else {
-                          this.newcita.doctor = this.doctor.nombre;
-                          this.newcita.especialidad = this.doctor.especialidad;
-                          this.newcita.fecha = f.fecha;
-                          this.newcita.hora = f.hora;
-                          this.newcita.iddoctor = this.doctor.uid;
-                          this.newcita.idpaciente = this.uidpaciente;
-                          this.newcita.paciente = this.paciente.nombre;
+                          if (!citaCreada) {
+                            this.newcita.doctor = this.doctor.nombre;
+                            this.newcita.especialidad = this.doctor.especialidad;
+                            this.newcita.fecha = f.fecha;
+                            this.newcita.hora = f.hora;
+                            this.newcita.iddoctor = this.doctor.uid;
+                            this.newcita.idpaciente = this.uidpaciente;
+                            this.newcita.paciente = this.paciente.nombre;
 
-                          console.log(this.newcita);
+                            console.log(this.newcita);
 
-                          this.store.agregar(this.newcita, "Citas");
+                            this.store.agregar(this.newcita, "Citas");
 
-                          const alert2 = await this.alertcontroller.create({
-                            header: "Cita agregado",
-                          });
+                            citaCreada = true; 
 
-                          await alert2.present();
-                          this.router.navigate(["../home"]);
+                            const alert2 = await this.alertcontroller.create({
+                              header: "Cita agregado",
+                            });
+
+                            await alert2.present();
+                            this.router.navigate(["../home"]);
+                          }
                         }
                       }
                     });
