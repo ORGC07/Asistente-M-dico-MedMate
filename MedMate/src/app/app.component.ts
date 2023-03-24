@@ -73,6 +73,8 @@ export class AppComponent {
 
   logout() {
     this.auth.cerrars();
-    this.router.navigate(["./login"]);
+    this.router.navigate(["./login"]).then(() => {
+      window.location.reload();
+    });
   }
 }
