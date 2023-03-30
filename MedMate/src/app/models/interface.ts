@@ -46,16 +46,17 @@ export interface cita{
 
 }
 
-
-
 export interface Reporte{
     nombre: string;
-    identificador: number;
+    idpaciente: string;
     edad: number;
     peso: number;
     altura: number;
     medicamentos: string;
     condicion: string;  
     id: string;
+    iddoctor: string;
+    doctorname: string;
+    especialidad: string;
     fecha: Date;
   }
