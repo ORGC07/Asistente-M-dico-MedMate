@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="relleno">
     <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,8 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content class="ion-padding" overflow-scroll="true">
+<ion-content class="ion-padding">
   <ion-item-group *ngIf="drugs">
     <ion-item-divider>
       <ion-label>
@@ -17,15 +16,17 @@
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item *ngFor="let drug of drugs">
-      <ion-item>
-        <ion-label>
-          <h3><b>Medicina:</b> {{drug.medicamento}}</h3>
-          <h4> <b>Hora:</b> {{drug.hora}}</h4>
-        </ion-label>
-      </ion-item>
-    </ion-item>
+    <ion-card *ngFor="let drug of drugs">
+      <ion-card-header>
+        <ion-card-title>Medicamento:</ion-card-title>
+        <ion-card-subtitle><h4>{{drug.medicamento}}</h4></ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <h4><b>Hora:</b>{{drug.hora}}</h4>
+      </ion-card-content>
+    </ion-card>
   </ion-item-group>
+
 
 
   <ion-item-group *ngIf="dates">
@@ -36,15 +37,18 @@
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item *ngFor="let date of dates"> 
-      <ion-item>
-        <ion-label>
-          <h3><b>Especialidad:</b> {{date.especialidad}} </h3>
-          <h4> <b>Doctor:</b> {{date.doctor}}</h4>
-          <h4> <b>Fecha:</b> {{date.fecha}}</h4>
-          <h4> <b>Hora:</b> {{date.hora}}</h4>
-        </ion-label>
-      </ion-item>
-    </ion-item>
+
+    <ion-card *ngFor="let date of dates">
+      <ion-card-header>
+        <ion-card-title>Especialidad:</ion-card-title>
+        <ion-card-subtitle><h4>{{date.especialidad}}</h4></ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <h4> <b>Doctor:</b> {{date.doctor}}</h4>
+        <h4> <b>Fecha:</b> {{date.fecha}}</h4>
+        <h4> <b>Hora:</b> {{date.hora}}</h4>
+      </ion-card-content>
+    </ion-card>
+
   </ion-item-group>
 </ion-content>

@@ -12,39 +12,45 @@
     <ion-card-content>
       <form [formGroup]="formulariologin">
         <ion-item>
-          <ion-label color="primary" position="floating">Usuario</ion-label>
-          <ion-input autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Ingrese su Usuario" required="true" formControlName="user"></ion-input>
+          <ion-label color="primary" position="floating" for="username">Usuario</ion-label>
+          <ion-input id="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Ingrese su Usuario" required="true" formControlName="user"></ion-input>
           <ion-icon name="person" color="primary" slot="start"></ion-icon>
         </ion-item>
+        <ion-item>
+          <ion-label color="primary" position="floating" for="password">Contraseña</ion-label>
+          <ion-input id="password" placeholder="Ingrese su Contraseña" required="true" formControlName="password" type="password"></ion-input>
+          <ion-icon name="Keypad-Outline" color="primary" slot="start"></ion-icon>
+        </ion-item>
+      </form>
+
+      <br>
+
       <ion-item>
-        <ion-label color="primary" position="floating">Contraseña</ion-label>
-        <ion-input placeholder="Ingrese su Contraseña" required="true" formControlName="password" type="password"></ion-input>
-        <ion-icon name="Keypad-Outline" color="primary" slot="start"></ion-icon>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label for="remember-me" style="color: black;">Mantener la Sesion Iniciada </ion-label>  
+        <ion-icon name="alert-circle-outline"></ion-icon>
       </ion-item>
 
-    </form>
-<br>
-    <ion-item>
-      <ion-checkbox slot="start"></ion-checkbox>
-      <ion-label>Recuerdame </ion-label>  
-    </ion-item>
+      <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
 
-    <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+      <ion-button  color="primary" expand="block"  (click)="ingresar()">
+        Ingresar
+      </ion-button>
 
-    <ion-button  color="primary" expand="block"  (click)="ingresar()">
-      Ingresar
-    </ion-button>
+      <h3>Desea Crear una cuenta? Seleccione una de estas Opciones</h3>
 
-    <ion-button  color="primary" expand="block" [routerLink]="['/registro']">
-      Registrarse
-    </ion-button>
+      <ion-button shape="round" color="primary" expand="block" [routerLink]="['/rpaciente']">
+        Crear Cuenta como Paciente
+      </ion-button>
 
+      <ion-button shape="round" color="primary" expand="block" [routerLink]="['/rdoctor']">
+        Crear Cuenta como Doctor
+      </ion-button>
 
-    <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+      <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+
+      <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
 
     </ion-card-content>
   </ion-card>
-   
 </ion-content>
-
-
