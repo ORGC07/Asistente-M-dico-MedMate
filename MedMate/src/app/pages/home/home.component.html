@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="principal">
     <ion-title class="subtitulo">
       Agregar Reporte
     </ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()">
-        <ion-icon color="primary" slot="icon-only" name="menu-outline"></ion-icon>      
+        <ion-icon color="blanco" slot="icon-only" name="menu-outline"></ion-icon>      
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
-<H3  class="subtitulo p-2 encabezado">Lista de reportes</H3>
-<ion-content>
+</ion-header >
+<H3 class="subtitulo p-2 encabezado">Lista de reportes</H3>
+<ion-content color="blanco">
   <div  *ngFor="let Reporte of reporte">
     <app-reportes class="normal" [reporte]= Reporte> </app-reportes>
   </div>

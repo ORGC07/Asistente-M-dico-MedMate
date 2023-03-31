@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="principal">
     <ion-title>Agendar Citas</ion-title>
-    <ion-button fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -23,7 +23,7 @@
       <ion-label position="floating">Hora <ion-text color="danger">*</ion-text></ion-label>
       <ion-input required value="number" formControlName="hora" type="time"></ion-input>
     </ion-item>
-    <ion-button block color="primary" type="submit">
+    <ion-button block color="secundario" type="submit">
       Aceptar
     </ion-button>
   </form>

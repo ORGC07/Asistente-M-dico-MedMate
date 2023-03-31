@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="relleno">
+  <ion-toolbar color="principal">
     <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,19 +7,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="blanco">
   <ion-item-group *ngIf="drugs">
-    <ion-item-divider>
+    <ion-item-divider color="relleno">
       <ion-label>
         <h1>
           Medicamentos
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-card *ngFor="let drug of drugs">
+    <ion-card *ngFor="let drug of drugs" color="relleno">
       <ion-card-header>
-        <ion-card-title>Medicamento:</ion-card-title>
-        <ion-card-subtitle><h4>{{drug.medicamento}}</h4></ion-card-subtitle>
+        <ion-card-title>Medicamento: {{drug.medicamento}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <h4><b>Hora:</b>{{drug.hora}}</h4>
@@ -30,18 +29,17 @@
 
 
   <ion-item-group *ngIf="dates">
-    <ion-item-divider>
-      <ion-label>
+    <ion-item-divider color="relleno">
+      <ion-label >
         <h1>
           Proximas citas
         </h1>
       </ion-label>
     </ion-item-divider>
 
-    <ion-card *ngFor="let date of dates">
+    <ion-card *ngFor="let date of dates" color="relleno">
       <ion-card-header>
-        <ion-card-title>Especialidad:</ion-card-title>
-        <ion-card-subtitle><h4>{{date.especialidad}}</h4></ion-card-subtitle>
+        <ion-card-title>Especialidad: {{date.especialidad}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <h4> <b>Doctor:</b> {{date.doctor}}</h4>
