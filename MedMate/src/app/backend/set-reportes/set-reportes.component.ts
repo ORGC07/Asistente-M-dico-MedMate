@@ -19,12 +19,27 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ["./set-reportes.component.scss"],
 })
 export class SetReportesComponent implements OnInit {
-  reporte: Reporte[] = [];
+  almacenarReporte: Reporte[] = [];
   newReportes!: Reporte;
   pacientes: paciente[] = [];
   doctores: doctor[] = [];
   infopacientes: paciente[] = [];
   uiddoctor: any;
+
+  reporte: Reporte = {
+    nombre: "",
+    idpaciente: "",
+    edad: 0,
+    peso: 0,
+    altura: 0,
+    medicamentos: "",
+    condicion: "",
+    id: this.firestoreService.getId(),
+    iddoctor: "",
+    especialidad: "",
+    doctorname: "",
+    fecha: new Date(),
+  };
 
   enablenewReportes = false;
 
@@ -59,8 +74,9 @@ export class SetReportesComponent implements OnInit {
     this.menuController.toggle("main");
   }
 
-   async guardarRepo() {
-    
+  async guardarRepo() {
+    let reporteCreado = false;
+
     const uid = await this.auth.getUid();
     this.showLoading();
 
@@ -71,58 +87,66 @@ export class SetReportesComponent implements OnInit {
           this.pacientes = res;
           this.pacientes.forEach((pac) => {
             if (pac.uid == this.newReportes.idpaciente) {
-              this.firestoreService.getCollection<doctor>("Doctores").subscribe((res2) => {
-                this.doctores = res2;
-                this.doctores.forEach((doc) => {
-                  if (doc.uid == uid) {
-                    if (uid) {
-                      this.uiddoctor = uid;
-                      this.newReportes = {
-                        nombre: pac.nombre + " " + pac.apellido,
-                        idpaciente: pac.uid,
-                        edad: pac.edad,
-                        peso: this.newReportes.peso,
-                        altura: this.newReportes.altura,
-                        medicamentos: this.newReportes.medicamentos,
-                        condicion: this.newReportes.condicion,
-                        iddoctor: uid,
-                        especialidad: doc.especialidad,
-                        doctorname: doc.nombre + " " + doc.apellido,
-                        id: this.firestoreService.getId(),
-                        fecha: new Date(),
-                      };
-                      this.firestoreService
-                        .createRepo(
-                          this.newReportes,
-                          this.path,
-                          this.newReportes.id
-                        )
-                        .then((res) => {
-                          this.loading.dismiss();
-                          this.presentToast("Guardado con exito");
-                        })
-                        .catch((error) => {
-                          this.presentToast("No se pudo guardar");
-                        });
+              this.firestoreService
+                .getCollection<doctor>("Doctores")
+                .subscribe((res2) => {
+                  this.doctores = res2;
+                  this.doctores.forEach((doc) => {
+                    if (doc.uid == uid) {
+                      if (uid) {
+                        this.uiddoctor = uid;
+                        this.newReportes = {
+                          nombre: pac.nombre + " " + pac.apellido,
+                          idpaciente: pac.uid,
+                          edad: pac.edad,
+                          peso: this.newReportes.peso,
+                          altura: this.newReportes.altura,
+                          medicamentos: this.newReportes.medicamentos,
+                          condicion: this.newReportes.condicion,
+                          iddoctor: uid,
+                          especialidad: doc.especialidad,
+                          doctorname: doc.nombre + " " + doc.apellido,
+                          id: this.firestoreService.getId(),
+                          fecha: new Date(),
+                        };
+                        if (!reporteCreado) {
+                          this.firestoreService
+                            .createRepo(
+                              this.newReportes,
+                              this.path,
+                              this.newReportes.id
+                            )
+                            .then((res) => {
+                              this.loading.dismiss();
+                              this.presentToast("Guardado con exito");
+                            })
+                            .catch((error) => {
+                              this.presentToast("No se pudo guardar");
+                            });
+                          reporteCreado = true;
+                        }
+                      }
                     }
-                    
-                  }
-                })
-
-              })
-              
-              
+                  });
+                });
             }
           });
         }
       });
-
-    
   }
-  leertRepo() {
-    0;
+  async leertRepo() {
+    
+    this.uiddoctor = await this.auth.getUid();
     this.firestoreService.getCollection<Reporte>(this.path).subscribe((res) => {
-      this.reporte = res;
+      this.almacenarReporte = [];
+      res.forEach((r) => {
+        if (r.iddoctor == this.uiddoctor) {
+          console.log("si" + r.iddoctor + -" " + this.uiddoctor);
+          this.reporte = r;
+          this.almacenarReporte.push(r)
+          
+        }
+      });
     });
   }
   async deleteReporte(Reporte: Reporte) {
@@ -161,7 +185,6 @@ export class SetReportesComponent implements OnInit {
   }
 
   nuevo() {
-    
     this.enablenewReportes = true;
     this.newReportes = {
       nombre: "",

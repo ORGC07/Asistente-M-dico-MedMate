@@ -61,7 +61,7 @@
 
 <ion-card>
   <H3  class="subtitulo p-3 encabezado">Lista de reportes</H3>
-        <ion-item *ngFor="let Reporte of reporte">
+        <ion-item *ngFor="let Reporte of almacenarReporte">
           <ion-label class="normal">{{Reporte.nombre}}</ion-label>
           <ion-buttons slot="end">
             <ion-button (click)="newReportes = Reporte ; enablenewReportes = true">
