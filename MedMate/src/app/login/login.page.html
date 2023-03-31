@@ -25,9 +25,12 @@
 
       <br>
 
+      <ion-row style="height: 10px"></ion-row>
+
+
       <ion-item>
         <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label for="remember-me" style="color: black;">Mantener la Sesion Iniciada </ion-label>  
+        <ion-label for="remember-me" color="primary" >Mantener la Sesion Iniciada </ion-label>  
         <ion-icon name="alert-circle-outline"></ion-icon>
       </ion-item>
 
@@ -37,19 +40,24 @@
         Ingresar
       </ion-button>
 
-      <h3>Desea Crear una cuenta? Seleccione una de estas Opciones</h3>
+      <ion-row style="height: 10px"></ion-row>
+
+      <h3 >Desea Crear una cuenta? Seleccione una de estas Opciones</h3>
+
+      <ion-row style="height: 10px"></ion-row>
 
       <ion-button shape="round" color="primary" expand="block" [routerLink]="['/rpaciente']">
         Crear Cuenta como Paciente
       </ion-button>
 
+      <ion-row style="height: 15px"></ion-row>
+
       <ion-button shape="round" color="primary" expand="block" [routerLink]="['/rdoctor']">
         Crear Cuenta como Doctor
       </ion-button>
 
-      <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
 
-      <ion-item><ion-label><hr class="solid"></ion-label></ion-item>
+      
 
     </ion-card-content>
   </ion-card>
