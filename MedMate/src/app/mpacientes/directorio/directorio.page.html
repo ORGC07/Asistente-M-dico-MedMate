@@ -19,10 +19,15 @@
     <ion-item *ngFor="let doctor of doctores">
       <ion-item>
         <ion-label>
-          <h2>Dr.{{doctor.nombre}} {{doctor.apellido}}</h2>
-          <h3><b>Especialidad:</b> {{doctor.especialidad}}</h3>
+          <h3>Dr.{{doctor.nombre}} {{doctor.apellido}}</h3>
+          <h4><b>Especialidad:</b> {{doctor.especialidad}}</h4>
         </ion-label>
       </ion-item>
+      <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button size="small">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </ion-item>
   </ion-item-group>
 
