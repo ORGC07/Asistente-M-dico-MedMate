@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from '@firebase/messaging';","map":{"version":3,"names":[],"sources":["C:/Users/omarr/Documents/GitHub/Asistente-M-dico-MedMate/MedMate/node_modules/firebase/messaging/dist/esm/index.esm.js"],"sourcesContent":["export * from '@firebase/messaging';\n"],"mappings":"AAAA,cAAc,qBAAqB"},"metadata":{},"sourceType":"module","externalDependencies":[]}
