@@ -2,24 +2,24 @@
   <ion-split-pane contentId="main">
     <ion-menu contentId="main" menuId="main">
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="secundario">
           <ion-title class="subtitulo">Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <ion-menu-toggle *ngIf="doctores">
+      <ion-content color="secundario">
+        <ion-menu-toggle *ngIf="doctores" color="secundario">
 
-          <ion-item button="true" detail="true" [routerLink]="['/homed']">
-            <ion-label class="normal">Pantalla principal</ion-label>
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/homed']">
+            <ion-label class="normal">Pantalla principal</ion-label >
             <ion-icon slot="start" name="home-outline"></ion-icon>
           </ion-item>
 
-          <ion-item button="true" detail="true" [routerLink]="['/set-reportes']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/set-reportes']">
             <ion-label class="normal">Agregar reportes</ion-label>
             <ion-icon slot="start" name="reader-outline"></ion-icon>
           </ion-item>
 
-          <ion-item button="true" detail="true" [routerLink]="['/lista-reporte']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/lista-reporte']">
             <ion-label class="normal">Lista reportes</ion-label>
             <ion-icon slot="start" name="list-outline"></ion-icon>
           </ion-item>
@@ -28,37 +28,37 @@
         </ion-menu-toggle>
         <ion-menu-toggle *ngIf="pacientes">
 
-          <ion-item button="true" detail="true" [routerLink]="['/home']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/home']">
             <ion-label class="normal">Pantalla principal</ion-label>
             <ion-icon slot="start" name="home-outline"></ion-icon>
           </ion-item>
 
-          <ion-item button="true" detail="true" [routerLink]="['/historial']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/historial']">
             <ion-label class="normal">Historial clinico</ion-label>
             <ion-icon slot="start" name="reader-outline"></ion-icon>
           </ion-item>
           
-          <ion-item button="true" detail="true" [routerLink]="['/medicamento']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/medicamento']">
             <ion-label class="normal">Agregar medicamentos</ion-label>
             <ion-icon slot="start" name="list-outline"></ion-icon>
           </ion-item>
 
-          <ion-item button="true" detail="true" [routerLink]="['/a-citas']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/a-citas']">
             <ion-label class="normal">Agregar citas</ion-label>
             <ion-icon slot="start" name="list-outline"></ion-icon>
           </ion-item>
 
-          <ion-item button="true" detail="true" [routerLink]="['/directorio']">
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/directorio']">
             <ion-label class="normal">Directorio de doctores</ion-label>
             <ion-icon slot="start" name="list-outline"></ion-icon>
           </ion-item>
 
         </ion-menu-toggle>
 
-        <ion-footer>
-          <ion-toolbar>
+        <ion-footer >
+          <ion-toolbar color="secundario">
             <ion-menu-toggle>
-              <ion-item button="true" detail="true" (click)="logout()">
+              <ion-item color="secundario" button="true" detail="true" (click)="logout()">
                 <ion-label class="normal">Cerrar Sesion</ion-label>
                 <ion-icon slot="start" name="log-out-outline"></ion-icon>
               </ion-item>

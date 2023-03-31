@@ -1,22 +1,22 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="principal">
     <ion-title></ion-title>
-    <ion-button fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" overflow-scroll="true">
+<ion-content color="blanco" class="ion-padding" overflow-scroll="true">
   <ion-item-group *ngIf="historiales">
-    <ion-item-divider>
+    <ion-item-divider color="secundario">
       <ion-label>
         <h1>
           Historial clinico
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item *ngFor="let historial of historiales">
-      <ion-item>
+    <ion-item color="blanco" *ngFor="let historial of historiales">
+      <ion-item color="blanco">
         <ion-label>
           <h2><b>Especialidad: </b> {{historial.especialidad}}</h2>
           <h3><b>Doctor: </b> {{historial.doctorname}}</h3>

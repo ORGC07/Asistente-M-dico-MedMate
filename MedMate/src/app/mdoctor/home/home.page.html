@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="principal">
     <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="blanco">
 
   <!-- <ion-fab slot="fixed" vertical="top" horizontal="end">
     <ion-fab-button size="small">
@@ -45,15 +45,15 @@
     </ion-card-content>
   </ion-card> -->
   <ion-item-group *ngIf="dates">
-    <ion-item-divider>
+    <ion-item-divider color="blanco">
       <ion-label>
         <h1>
           Proximas citas
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item *ngFor="let date of dates">
-      <ion-item>
+    <ion-item *ngFor="let date of dates" color="blanco">
+      <ion-item color="blanco">
         <ion-label>
           <h4> <b>Paciente:</b> {{date.paciente}}</h4>
           <h4> <b>Fecha:</b> {{date.fecha}}</h4>
