@@ -6,6 +6,10 @@ import { cita, medicacion, paciente } from 'src/app/models/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
+const fecha = new Date(); // crea un objeto Date con la fecha y hora actual del sistema
+const horasistema = fecha.getHours(); // obtiene la hora actual (en formato de 24 horas)
+const minutossistema = fecha.getMinutes(); // obtiene los minutos actuales
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.page.html",
@@ -69,35 +73,41 @@ export class HomePage implements OnInit {
       
   }}
 
-
-
   medicamentos() {
-    const path = "Medicamentos";
+    const path = 'Medicamentos';
     this.store.consultar<medicacion>(path).subscribe((res) => {
       if (res) {
         this.drugs = [];
-        res.forEach((r) => {
-          if (r.userid == this.uid) {
-            this.infom = r;
-            this.drugs.push(this.infom), console.log(this.drugs);
-          }
-        });
+        res.filter((med) => med.userid == this.uid) // Filtrar medicamentos del usuario actual
+          .sort((a, b) => {
+            // Ordenar por hora más cercana a la hora actual
+            const horaA = new Date(a.fecha + ' ' + a.hora + ':00').getTime();
+            const horaB = new Date(b.fecha + ' ' + b.hora + ':00').getTime();
+            return Math.abs(horaA - fecha.getTime()) - Math.abs(horaB - fecha.getTime());
+          })
+          .slice(0, 2) // Mostrar solo los dos medicamentos más cercanos a la hora actual
+          .forEach((med) => this.drugs.push(med));
+        console.log(this.drugs);
       }
     });
   }
+
   citas() {
-    const path = "Citas";
+    const path = 'Citas';
     this.store.consultar<cita>(path).subscribe((res) => {
       if (res) {
         this.dates = [];
-        res.forEach((r) => {
-          if (r.idpaciente == this.uid) {
-            this.infoc = r;
-            this.dates.push(this.infoc), console.log(this.dates);
-          }
-        });
+        res.filter((cita) => cita.idpaciente == this.uid) // Filtrar citas del usuario actual
+          .sort((a, b) => {
+            // Ordenar por hora más cercana a la hora actual
+            const horaA = new Date(a.fecha + ' ' + a.hora + ':00').getTime();
+            const horaB = new Date(b.fecha + ' ' + b.hora + ':00').getTime();
+            return Math.abs(horaA - fecha.getTime()) - Math.abs(horaB - fecha.getTime());
+          })
+          .slice(0, 2) // Mostrar solo las dos citas más cercanas a la hora actual
+          .forEach((cita) => this.dates.push(cita));
+        console.log(this.dates);
       }
     });
   }
 }
-
