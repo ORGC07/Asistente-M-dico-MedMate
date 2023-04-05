@@ -67,10 +67,7 @@ export class HomePage implements OnInit {
 
         await alert.present();
         return;
-      } });
-      
-      
-      
+      } }); 
   }}
 
   medicamentos() {
@@ -98,6 +95,19 @@ export class HomePage implements OnInit {
       if (res) {
         this.dates = [];
         res.filter((cita) => cita.idpaciente == this.uid) // Filtrar citas del usuario actual
+          .filter((cita) => {
+            const fechaCita = new Date(cita.fecha + ' ' + cita.hora + ':00');
+            if (fechaCita.getTime() == fecha.getTime()) {
+              // Si la cita es para hoy, solo mostrar si la hora es mayor que la hora actual
+              return cita.hora > horasistema;
+            } else if (fechaCita.getTime() > fecha.getTime()) {
+              // Si la cita es para otro día, mostrar solo si la fecha no ha pasado
+              return true;
+            } else {
+              // Si la cita es para otro día y la fecha ya pasó, no mostrar
+              return false;
+            }
+          })
           .sort((a, b) => {
             // Ordenar por hora más cercana a la hora actual
             const horaA = new Date(a.fecha + ' ' + a.hora + ':00').getTime();
