@@ -33,6 +33,11 @@ export class FirestoreService {
     return this.firestore.collection<Tipo>(path).doc(id).valueChanges();
   }
 
+  deletedoc(path:string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).delete();
+  }
+
   async update<Tipo>(path: string, id:string, data: any){
     return await this.firestore.collection<Tipo>(path).doc(id);
   }

@@ -27,6 +27,7 @@ export class MedicacionPage implements OnInit {
     fecha : "",
     hora: 0,
     userid: "",
+    id: this.store.getId()
 
   }
 
@@ -74,10 +75,15 @@ export class MedicacionPage implements OnInit {
       this.newmedicamento.hora = f.hora;
       this.newmedicamento.fecha = '2022-06-03';
       this.newmedicamento.userid = this.uid;
+      this.newmedicamento.id= this.store.getId()
 
       console.log(this.newmedicamento);
 
-      this.store.agregar(this.newmedicamento, "Medicamentos")     
+      this.store.createDoc(
+        this.newmedicamento,
+        "Medicamentos",
+        this.newmedicamento.id
+      );     
 
       const alert2 = await this.alertcontroller.create({
         header: 'Medicamento agregado',

@@ -102,7 +102,11 @@ const routes: Routes = [
       import("./mpacientes/directorio/directorio.module").then(
         (m) => m.DirectorioPageModule
       ),
+  },  {
+    path: 'vmedicamentos',
+    loadChildren: () => import('./mpacientes/vmedicamentos/vmedicamentos.module').then( m => m.VmedicamentosPageModule)
   },
+
 ];
 
 @NgModule({

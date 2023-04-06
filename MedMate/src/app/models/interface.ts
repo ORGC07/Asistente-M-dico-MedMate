@@ -29,6 +29,7 @@ export interface medicacion{
     fecha: string,
     hora: number,
     userid: string,
+    id: string,
 }
 
 export interface especialidad{
