@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title>Citas</ion-title>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/home']"><ion-icon
+        name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="ion-padding" color="blanco">
+    <ion-item-group *ngIf="citas">
+      <ion-item color="relleno" *ngFor="let cita of citas" color="relleno">
+        <ion-label>
+          <h3>Dr. {{cita.doctor}}</h3>
+          <h4>{{cita.especialidad}}</h4>
+          <h4>{{cita.fecha}}</h4>
+          <h4>{{cita.hora}}</h4>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="delete(cita)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+  </ion-content>

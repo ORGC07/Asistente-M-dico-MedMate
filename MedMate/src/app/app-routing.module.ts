@@ -106,6 +106,10 @@ const routes: Routes = [
     path: 'vmedicamentos',
     loadChildren: () => import('./mpacientes/vmedicamentos/vmedicamentos.module').then( m => m.VmedicamentosPageModule)
   },
+  {
+    path: 'vcitas',
+    loadChildren: () => import('./mpacientes/vcitas/vcitas.module').then( m => m.VcitasPageModule)
+  },
 
 ];
 

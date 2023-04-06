@@ -44,6 +44,7 @@ export interface cita{
     especialidad: string,
     fecha: Date,
     hora: number,
+    id: string,
 
 }
 

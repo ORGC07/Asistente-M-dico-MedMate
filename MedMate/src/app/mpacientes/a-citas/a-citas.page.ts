@@ -57,6 +57,7 @@ export class ACitasPage implements OnInit {
     especialidad: "",
     fecha: new Date(),
     hora: 0,
+    id: this.store.getId()
   };
 
   constructor(
@@ -119,22 +120,23 @@ export class ACitasPage implements OnInit {
                           return;
                         } else {
                           if (!citaCreada) {
-                            this.newcita.doctor = this.doctor.nombre;
+                            this.newcita.doctor = this.doctor.nombre + " " + this.doctor.apellido;
                             this.newcita.especialidad = this.doctor.especialidad;
                             this.newcita.fecha = f.fecha;
                             this.newcita.hora = f.hora;
                             this.newcita.iddoctor = this.doctor.uid;
                             this.newcita.idpaciente = this.uidpaciente;
-                            this.newcita.paciente = this.paciente.nombre;
+                            this.newcita.paciente = this.paciente.nombre + " " + this.paciente.apellido;
+                            this.newcita.id = this.store.getId()
 
                             console.log(this.newcita);
 
-                            this.store.agregar(this.newcita, "Citas");
+                            this.store.createDoc(this.newcita, "Citas", this.newcita.id);
 
                             citaCreada = true; 
 
                             const alert2 = await this.alertcontroller.create({
-                              header: "Cita agregado",
+                              header: "Cita agregada",
                             });
 
                             await alert2.present();

@@ -33,6 +33,7 @@ export class HomePage implements OnInit {
     especialidad: "",
     fecha: new Date(),
     hora: 0,
+    id: "",
   };
   info: paciente = null!;
   drugs: any[] = [];
