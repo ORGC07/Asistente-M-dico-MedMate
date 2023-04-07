@@ -1,0 +1,39 @@
+ion-content {
+    background-color: #F2F2F2;
+    height: calc(50vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .divider {
+    background-color: #E5E5E5;
+    margin-top: 0.25rem;
+  }
+  
+  .item {
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .item:hover {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  h4 {
+    margin: 0.15rem 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  ion-select {
+    --padding-end: 0.10rem;
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+  
+  
+  

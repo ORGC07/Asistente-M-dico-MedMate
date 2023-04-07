@@ -9,21 +9,21 @@
 
 <ion-content>
   <ion-content class="ion-padding" color="blanco">
-    <ion-item-group *ngIf="citas">
-      <ion-item color="relleno" *ngFor="let cita of citas" color="relleno">
+    <ion-item-group *ngIf="citas" class="custom-list">
+      <ion-item color="relleno" *ngFor="let cita of citas" color="light">
         <ion-label>
-          <h2>Dr. {{cita.doctor}}</h2>
-          <h4><b>Especialidad: </b> {{cita.especialidad}}</h4>
-          <h4><b>Estado: </b> {{cita.estado}}</h4>
-          <h4><b>Fecha: </b> {{cita.fecha}}</h4>
-          <h4><b>Hora: </b>{{cita.hora}}</h4>
-          
+          <h2 class="normal">Dr. {{cita.doctor}}</h2>
+          <h4 class="pequeña"><b>Especialidad: </b> {{cita.especialidad}}</h4>
+          <h4 class="pequeña"><b>Estado: </b> {{cita.estado}}</h4>
+          <h4 class="pequeña"><b>Fecha: </b> {{cita.fecha}}</h4>
+          <h4 class="pequeña"><b>Hora: </b>{{cita.hora}}</h4>
         </ion-label>
         <ion-buttons slot="end">
           <ion-button (click)="delete(cita)">
-            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-item>
     </ion-item-group>
   </ion-content>
+</ion-content>

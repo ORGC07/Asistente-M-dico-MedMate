@@ -7,19 +7,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-content class="ion-padding" color="blanco">
-  <ion-item-group *ngIf="drugs">
-    <ion-item color="relleno" *ngFor="let drug of drugs" color="relleno">
-      <ion-label>
-        <h3> {{drug.medicamento}}</h3>
-        <h4><b>Hora:</b>{{drug.hora}}</h4>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button (click)="delete(drug)">
-          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-  </ion-item-group>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-group *ngIf="drugs" class="custom-list">
+      <ion-item *ngFor="let drug of drugs" class="custom-item">
+        <ion-label>
+          <p class="normal"><b>Medicamento: </b>{{drug.medicamento}}</p>
+          <p class="time"><b>Hora: </b>{{drug.hora}}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="delete(drug)" color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 </ion-content>

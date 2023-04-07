@@ -1,0 +1,33 @@
+/* Estilos para el contenedor */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    margin-top: 50px; /* Sube el formulario 50px */
+  }
+  
+  /* Estilos para el título */
+  .titulo {
+    font-size: 2rem; /* Reduce el tamaño del título */
+    margin-bottom: 2rem;
+  }
+  
+  /* Estilos para el formulario */
+  .formulario {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para los botones */
+  .botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+  

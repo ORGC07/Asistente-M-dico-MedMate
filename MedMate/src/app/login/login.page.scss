@@ -1,22 +1,65 @@
-ion-item-divider 
-    {
-        border-top: 3px;
-        background: None;
-      }
-  
+.login-card {
+  max-width: 800px;
+  margin: auto;
+  background-color: #f5f5f5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
 
-  ion-checkbox {
-    --size: 10px;
-    --background-checked: clear;
-  }
+.login-card-content {
+  padding: 40px;
+}
 
-  //Fuera de uso
-  ion-checkbox::part(container) {
-    border-radius: 6px;
-    border: 2px solid blue;
-  }
- //Fuera de uso
+.login-item {
+  --background: #ffffff;
+  --border-color: #cccccc;
+  --border-radius: 5px;
+  --box-shadow: none;
+}
 
- hr.solid {
-    border-top: 3px solid #bbb;
-  }
+.login-button {
+  --background: #314e52;
+  --color: #ffffff;
+  --border-radius: 5px;
+  --box-shadow: none;
+  font-weight: bold;
+}
+
+.login-row {
+  height: 20px;
+}
+
+.login-header {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #777777;
+}
+
+.login-item {
+  --padding-start: 30px;
+  --padding-end: 30px;
+  --inner-padding-start: 10px;
+  --inner-padding-end: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-item ion-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.login-item ion-icon {
+  font-size: 18px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.login-item ion-input {
+  font-size: 16px;
+  padding: var(--inner-padding-start) var(--inner-padding-end);
+}

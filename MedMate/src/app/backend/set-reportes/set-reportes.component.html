@@ -10,59 +10,59 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <div style="text-align: end; margin: 10px;" >
+  <div class="header">
     <ion-button class="normal" (click)="nuevo()" color="dark">Nuevo</ion-button>
   </div>
-  <div *ngIf="enablenewReportes">
+  <div class="new-report" *ngIf="enablenewReportes">
     <ion-item>
       <ion-buttons slot="end">
-          <ion-button (click)="enablenewReportes = false">
-      <ion-icon slot="icon-only" color="dark" name="close"></ion-icon>
-    </ion-button>
-    <ion-button color="color1" (click)="guardarRepo( )">
-      <ion-icon slot="icon-only" name="save-outline"></ion-icon>
-    </ion-button>
-    </ion-buttons>
+        <ion-button (click)="enablenewReportes = false">
+          <ion-icon slot="icon-only" color="dark" name="close"></ion-icon>
+        </ion-button>
+        <ion-button color="color1" (click)="guardarRepo()">
+          <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-item>
-    <H3  class="subtitulo p-3 encabezado">Agregar informacion personal</H3>
-        <ion-item>
-          <ion-label class="normal" position="floating">Nombre Completo:</ion-label>
-          <ion-select [(ngModel)]="newReportes.idpaciente" interface="popover" placeholder="Selecciona Paciente">
-            <ion-select-option *ngFor="let paciente of infopacientes" [value]="paciente.uid">{{paciente.nombre}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label class="normal" position="floating">Peso:</ion-label>
-          <ion-input [(ngModel)]="newReportes.peso" class="normal" type="number" inputmode="numeric"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="normal" position="floating">Altura:</ion-label>
-          <ion-input [(ngModel)]="newReportes.altura" class="normal" type="number" inputmode="numeric"></ion-input>
-        </ion-item>
-        <ion-item counter="true">
-          <ion-label class="normal" position="floating">Medicamentos que consume:</ion-label>
-          <ion-textarea [(ngModel)]="newReportes.medicamentos" class="normal" type="text" inputmode="text" maxlength="120"></ion-textarea>
-        </ion-item>
-        <ion-item counter="true">
-          <ion-label class="normal"position="floating">Condicion medica:</ion-label>
-          <ion-textarea [(ngModel)]="newReportes.condicion" class="normal" type="text" inputmode="text" maxlength="120"></ion-textarea>
-        </ion-item>
+    <h3 class="subtitulo p-3 encabezado">Agregar información personal</h3>
+    <ion-item>
+      <ion-label class="normal" position="floating">Nombre Completo:</ion-label>
+      <ion-select [(ngModel)]="newReportes.idpaciente" interface="popover" placeholder="Selecciona Paciente">
+        <ion-select-option *ngFor="let paciente of infopacientes" [value]="paciente.uid">{{paciente.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Peso:</ion-label>
+      <ion-input [(ngModel)]="newReportes.peso" class="normal" type="number" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Altura:</ion-label>
+      <ion-input [(ngModel)]="newReportes.altura" class="normal" type="number" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item counter="true">
+      <ion-label class="normal" position="floating">Medicamentos que consume:</ion-label>
+      <ion-textarea [(ngModel)]="newReportes.medicamentos" class="normal" type="text" inputmode="text" maxlength="120"></ion-textarea>
+    </ion-item>
+    <ion-item counter="true">
+      <ion-label class="normal" position="floating">Condición médica:</ion-label>
+      <ion-textarea [(ngModel)]="newReportes.condicion" class="normal" type="text" inputmode="text" maxlength="120"></ion-textarea>
+    </ion-item>
   </div>
 
-<ion-card>
-  <H3  class="subtitulo p-3 encabezado">Lista de reportes</H3>
-        <ion-item *ngFor="let Reporte of almacenarReporte">
-          <ion-label class="normal">{{Reporte.nombre}}</ion-label>
-          <ion-buttons slot="end">
-            <ion-button (click)="newReportes = Reporte ; enablenewReportes = true">
-              <ion-icon slot="icon-only" class="color1" name="create-outline"></ion-icon>
-            </ion-button>
-            <ion-button (click)="deleteReporte(Reporte)">
-              <ion-icon slot="icon-only" color="danger" name="trash-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-item>
-</ion-card>
-
+  <ion-card>
+    <h3 class="subtitulo p-3 encabezado">Lista de reportes</h3>
+    <ion-item *ngFor="let Reporte of almacenarReporte">
+      <ion-label class="normal">{{Reporte.nombre}}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="newReportes = Reporte; enablenewReportes = true">
+          <ion-icon slot="icon-only" class="color1" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="deleteReporte(Reporte)">
+          <ion-icon slot="icon-only" color="danger" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-card>
 </ion-content>

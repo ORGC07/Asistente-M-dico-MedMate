@@ -124,9 +124,66 @@
   font-size: 14px;
   color: black;
 }
+.normal1{
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 14px;
+  color: white;
+}
+
 .pequeña{
   font-family: 'Raleway', sans-serif !important;
   font-size: 11px;
   justify-content: center;
   color: black;
 }
+
+
+
+.custom-list ion-item {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.custom-list ion-label h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.custom-list ion-label h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.custom-list ion-button {
+  color: #fff;
+}
+
+
+.custom-content {
+  background-color: #f9f9f9;
+}
+
+.custom-divider {
+  border-color: #c0c0c0;
+}
+
+.custom-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.custom-card .normal {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.custom-card ion-card-content {
+  margin: 10px;
+}
+
+

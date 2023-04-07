@@ -10,20 +10,21 @@
   <ion-item-group *ngIf="historiales">
     <ion-item-divider color="secundario">
       <ion-label>
-        <h1>
-          Historial clinico
+        <h1 class="historial-header">
+          Historial clínico
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item color="blanco" *ngFor="let historial of historiales">
+    <ion-item color="blanco" *ngFor="let historial of historiales" class="historial-item">
       <ion-item color="blanco">
-        <ion-label>
-          <h2><b>Especialidad: </b> {{historial.especialidad}}</h2>
-          <h3><b>Doctor: </b> {{historial.doctorname}}</h3>
-          <h4><b>Condicion: </b> {{historial.condicion}}</h4>
-          <h4><b>Medicamentos: </b> {{historial.medicamentos}}</h4>
+        <ion-label class="historial-label ion-text-wrap">
+          <h2><b>Especialidad:</b> {{historial.especialidad}}</h2>
+          <h3><b>Doctor:</b> {{historial.doctorname}}</h3>
+          <h4><b>Condición:</b> {{historial.condicion}}</h4>
+          <h4><b>Medicamentos:</b> {{historial.medicamentos}}</h4>
         </ion-label>
       </ion-item>
+      <br> <!-- agregar un poco de margen inferior -->
     </ion-item>
   </ion-item-group>
 </ion-content>

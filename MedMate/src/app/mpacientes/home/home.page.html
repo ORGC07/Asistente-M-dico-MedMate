@@ -7,46 +7,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" color="blanco">
+<ion-content class="ion-padding custom-content">
+
   <ion-item-group *ngIf="drugs">
-    <ion-item-divider color="relleno">
-      <ion-label>
-        <h1>
-          Medicamentos
-        </h1>
+    <ion-item-divider class="custom-divider">
+      <ion-label class="subtitle p-3 header">
+        <h1>Medicamentos</h1>
       </ion-label>
     </ion-item-divider>
-    <ion-card *ngFor="let drug of drugs" color="relleno">
+
+    <ion-card *ngFor="let drug of drugs" class="custom-card">
       <ion-card-header>
-        <ion-card-title>Medicamento: {{drug.medicamento}}</ion-card-title>
+        <ion-card-title class="normal">Medicamento: {{drug.medicamento}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <h4><b>Hora:</b>{{drug.hora}}</h4>
+        <h4><b>Hora:</b> {{drug.hora}}</h4>
       </ion-card-content>
     </ion-card>
   </ion-item-group>
-
-
 
   <ion-item-group *ngIf="dates">
-    <ion-item-divider color="relleno">
-      <ion-label >
-        <h1>
-          Proximas citas
-        </h1>
+    <ion-item-divider class="custom-divider">
+      <ion-label class="subtitle p-3 header">
+        <h1>Próximas citas</h1>
       </ion-label>
     </ion-item-divider>
 
-    <ion-card *ngFor="let date of dates" color="relleno">
+    <ion-card *ngFor="let date of dates" class="custom-card">
       <ion-card-header>
-        <ion-card-title>Especialidad: {{date.especialidad}}</ion-card-title>
+        <ion-card-title class="normal">Especialidad: {{date.especialidad}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <h4> <b>Doctor:</b> {{date.doctor}}</h4>
-        <h4> <b>Fecha:</b> {{date.fecha}}</h4>
-        <h4> <b>Hora:</b> {{date.hora}}</h4>
+        <h4><b>Doctor:</b> {{date.doctor}}</h4>
+        <h4><b>Fecha:</b> {{date.fecha}}</h4>
+        <h4><b>Hora:</b> {{date.hora}}</h4>
       </ion-card-content>
     </ion-card>
 
   </ion-item-group>
+  
 </ion-content>

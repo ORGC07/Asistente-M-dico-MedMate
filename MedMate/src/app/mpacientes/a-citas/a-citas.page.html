@@ -6,26 +6,48 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <form [formGroup]="acitasform" (ngSubmit)="agregar()">
-    <ion-item>
-      <ion-label position="floating">Doctor <ion-text color="danger">*</ion-text></ion-label>
-      <ion-select formControlName="doctor" interface="popover" placeholder="Selecciona Doctor">
-        <ion-select-option *ngFor="let doctor of infodoctor" [value]="doctor.uid">{{doctor.nombre}}</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Fecha <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required value="number" formControlName="fecha" type="date"></ion-input>
-    </ion-item>  
-    <ion-item>
-      <ion-label position="floating">Hora <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required value="number" formControlName="hora" type="time"></ion-input>
-    </ion-item>
-    <ion-button block color="secundario" type="submit">
-      Aceptar
-    </ion-button>
-  </form>
-
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <h2 class="titulo">Nueva cita</h2>
+    <form [formGroup]="acitasform" (ngSubmit)="agregar()">
+      <ion-item>
+        <ion-label position="stacked">Doctor <ion-text color="danger">*</ion-text></ion-label>
+        <ion-select formControlName="doctor" interface="popover" placeholder="Selecciona Doctor">
+          <ion-select-option *ngFor="let doctor of infodoctor" [value]="doctor.uid">{{doctor.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="fecha" type="date"></ion-input>
+      </ion-item>  
+      <ion-item>
+        <ion-label position="stacked">Hora <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="hora" type="time"></ion-input>
+      </ion-item>
+      <div class="botones">
+        <ion-button color="secondary" expand="block" type="submit">
+          Aceptar
+        </ion-button>
+        <ion-button color="light" expand="block" type="reset">
+          Cancelar
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
+
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+  }
+</style>
