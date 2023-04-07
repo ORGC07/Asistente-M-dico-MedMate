@@ -9,15 +9,17 @@
     <ion-card-content class="login-card-content">
       <form [formGroup]="formulariologin">
         <ion-item class="login-item">
-          <ion-label color="dark" position="floating" for="username">Usuario</ion-label>
-          <ion-input id="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Ingrese su Usuario" required="true" formControlName="user"></ion-input>
-          <ion-icon name="person" color="dark" slot="start"></ion-icon>
+          <ion-label color="Contraste" position="floating" for="username">Usuario</ion-label>
+          <ion-input id="username" autofocus="on" clearInput="true" clearOnEdit="true" inputmode="text" placeholder="Ingrese su Usuario" required="true" formControlName="user" color="Contraste" ></ion-input>
+          <ion-icon name="person" color="Contraste" slot="start" class="ion-align-self-center" ></ion-icon>
         </ion-item>
+
         <ion-item class="login-item">
-          <ion-label color="dark" position="floating" for="password">Contraseña</ion-label>
-          <ion-input id="password" placeholder="Ingrese su Contraseña" required="true" formControlName="password" type="password"></ion-input>
-          <ion-icon name="lock-closed" color="dark" slot="start"></ion-icon>
+          <ion-label color="Contraste" position="floating" for="password">Contraseña</ion-label>
+          <ion-input id="password" placeholder="Ingrese su Contraseña" required="true" formControlName="password" type="password" color="Contraste" ></ion-input>
+          <ion-icon name="lock-closed" color="Contraste" slot="start" class="ion-align-self-center" ></ion-icon>
         </ion-item>
+        
       </form>
 
       <br>
