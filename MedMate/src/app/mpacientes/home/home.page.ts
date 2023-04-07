@@ -34,6 +34,7 @@ export class HomePage implements OnInit {
     fecha: new Date(),
     hora: 0,
     id: "",
+    estado: "",
   };
   info: paciente = null!;
   drugs: any[] = [];
@@ -96,7 +97,7 @@ export class HomePage implements OnInit {
     this.store.consultar<cita>(path).subscribe((res) => {
       if (res) {
         this.dates = [];
-        res.filter((cita) => cita.idpaciente == this.uid) // Filtrar citas del usuario actual
+        res.filter((cita) => cita.idpaciente == this.uid && cita.estado == "Aceptada") // Filtrar citas del usuario actual
           .filter((cita) => {
             const fechaCita = new Date(cita.fecha + ' ' + cita.hora + ':00');
             if (fechaCita.getTime() == fecha.getTime()) {

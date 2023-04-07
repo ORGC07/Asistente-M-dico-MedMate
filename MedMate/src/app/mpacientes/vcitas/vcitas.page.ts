@@ -21,6 +21,7 @@ export class VcitasPage implements OnInit {
     fecha: new Date(),
     hora: 0,
     id: "",
+    estado:"",
   };
   uid: any;
   loading: any;

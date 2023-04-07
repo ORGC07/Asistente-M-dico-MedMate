@@ -141,7 +141,6 @@ export class SetReportesComponent implements OnInit {
       this.almacenarReporte = [];
       res.forEach((r) => {
         if (r.iddoctor == this.uiddoctor) {
-          console.log("si" + r.iddoctor + -" " + this.uiddoctor);
           this.reporte = r;
           this.almacenarReporte.push(r)
           

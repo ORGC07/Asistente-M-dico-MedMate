@@ -102,13 +102,18 @@ const routes: Routes = [
       import("./mpacientes/directorio/directorio.module").then(
         (m) => m.DirectorioPageModule
       ),
-  },  {
+  },
+  {
     path: 'vmedicamentos',
     loadChildren: () => import('./mpacientes/vmedicamentos/vmedicamentos.module').then( m => m.VmedicamentosPageModule)
   },
   {
     path: 'vcitas',
     loadChildren: () => import('./mpacientes/vcitas/vcitas.module').then( m => m.VcitasPageModule)
+  },
+  {
+    path: 'citasd',
+    loadChildren: () => import('./mdoctor/citas/citas.module').then( m => m.CitasPageModule)
   },
 
 ];

@@ -12,17 +12,16 @@
     <ion-item-group *ngIf="citas">
       <ion-item color="relleno" *ngFor="let cita of citas" color="relleno">
         <ion-label>
-          <h3>Dr. {{cita.doctor}}</h3>
-          <h4>{{cita.especialidad}}</h4>
-          <h4>{{cita.fecha}}</h4>
-          <h4>{{cita.hora}}</h4>
+          <h2>Dr. {{cita.doctor}}</h2>
+          <h4><b>Especialidad: </b> {{cita.especialidad}}</h4>
+          <h4><b>Estado: </b> {{cita.estado}}</h4>
+          <h4><b>Fecha: </b> {{cita.fecha}}</h4>
+          <h4><b>Hora: </b>{{cita.hora}}</h4>
+          
         </ion-label>
         <ion-buttons slot="end">
           <ion-button (click)="delete(cita)">
             <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-          </ion-button>
-          <ion-button>
-            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-item>

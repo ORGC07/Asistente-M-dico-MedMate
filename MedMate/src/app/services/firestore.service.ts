@@ -38,6 +38,12 @@ export class FirestoreService {
     return collection.doc(id).delete();
   }
 
+  updatedoc(path: string, id: string, data: any){
+    const collection = this.firestore.collection(path)
+    return collection.doc(id).update(data);
+
+  }
+
   async update<Tipo>(path: string, id:string, data: any){
     return await this.firestore.collection<Tipo>(path).doc(id);
   }

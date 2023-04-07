@@ -7,7 +7,7 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AlertController } from "@ionic/angular";
-import { cita, doctor, paciente } from "src/app/models/interface";
+import { cita, doctor, paciente, EstadoCita } from "src/app/models/interface";
 import { AuthService } from "src/app/services/auth.service";
 import { FirestoreService } from "src/app/services/firestore.service";
 
@@ -57,7 +57,8 @@ export class ACitasPage implements OnInit {
     especialidad: "",
     fecha: new Date(),
     hora: 0,
-    id: this.store.getId()
+    id: this.store.getId(),
+    estado: "",
   };
 
   constructor(
@@ -128,6 +129,7 @@ export class ACitasPage implements OnInit {
                             this.newcita.idpaciente = this.uidpaciente;
                             this.newcita.paciente = this.paciente.nombre + " " + this.paciente.apellido;
                             this.newcita.id = this.store.getId()
+                            this.newcita.estado = "En espera"
 
                             console.log(this.newcita);
 

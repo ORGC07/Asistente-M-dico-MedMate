@@ -28,19 +28,10 @@
     <H3  class="subtitulo p-3 encabezado">Agregar informacion personal</H3>
         <ion-item>
           <ion-label class="normal" position="floating">Nombre Completo:</ion-label>
-          <!-- <ion-input [(ngModel)]="newReportes.nombre" class="normal" type="text" inputmode="text"></ion-input> -->
           <ion-select [(ngModel)]="newReportes.idpaciente" interface="popover" placeholder="Selecciona Paciente">
             <ion-select-option *ngFor="let paciente of infopacientes" [value]="paciente.uid">{{paciente.nombre}}</ion-select-option>
           </ion-select>
         </ion-item>
-        <!-- <ion-item>
-          <ion-label class="normal" position="floating">Identificador:</ion-label>
-          <ion-input [(ngModel)]="newReportes.identificador" class="normal" type="number" inputmode="numeric"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="normal" position="floating">Edad:</ion-label>
-          <ion-input [(ngModel)]="newReportes.edad" class="normal" type="number" inputmode="numeric"></ion-input>
-        </ion-item> -->
         <ion-item>
           <ion-label class="normal" position="floating">Peso:</ion-label>
           <ion-input [(ngModel)]="newReportes.peso" class="normal" type="number" inputmode="numeric"></ion-input>

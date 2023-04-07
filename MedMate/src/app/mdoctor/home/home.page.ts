@@ -23,6 +23,7 @@ export class HomePage implements OnInit {
     fecha: new Date(),
     hora: 0,
     id: "",
+    estado: "",
   };
 
   constructor(

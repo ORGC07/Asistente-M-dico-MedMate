@@ -45,6 +45,7 @@ export interface cita{
     fecha: Date,
     hora: number,
     id: string,
+    estado: string,
 
 }
 
@@ -62,3 +63,5 @@ export interface Reporte{
     especialidad: string;
     fecha: Date;
   }
+
+export type EstadoCita = "En espera" | "Aceptada" |"Rechazada";
