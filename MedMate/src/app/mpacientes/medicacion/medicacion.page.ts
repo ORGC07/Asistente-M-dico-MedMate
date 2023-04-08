@@ -8,6 +8,8 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 import { medicacion, paciente } from 'src/app/models/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { LocalNotifications } from "@capacitor/local-notifications";
+
 
 
 @Component({
@@ -36,7 +38,7 @@ export class MedicacionPage implements OnInit {
 
       this.medicamentoform = this.fb.group({
         'medicamento': new FormControl("", Validators.required),
-        'cdias': new FormControl("", Validators.required),
+        'fecha': new FormControl("", Validators.required),
         'hora': new FormControl("", Validators.required),
       })
      }
@@ -71,13 +73,38 @@ export class MedicacionPage implements OnInit {
     else{
 
       this.newmedicamento.medicamento = f.medicamento,
-      this.newmedicamento.cdias = f.cdias;
+      this.newmedicamento.cdias = f.fe;
       this.newmedicamento.hora = f.hora;
-      this.newmedicamento.fecha = '2022-06-03';
+      this.newmedicamento.fecha = f.fecha;
       this.newmedicamento.userid = this.uid;
       this.newmedicamento.id= this.store.getId()
 
       console.log(this.newmedicamento);
+
+      let notification = {
+        id: 1,
+        title: "Recordatorio",
+        body: "¡Es hora de tomarte la medicina!" + this.newmedicamento.medicamento,
+        schedule: {
+          on: {
+            year: 2023,
+            month: 4,
+            day: 7,
+            hour: 17,
+            minute: 30,
+            second: 0
+          },
+        },
+        sound: 'beep.aiff',
+        actions: [
+          { id: "yes", title: "Sí" },
+          { id: "no", title: "No" },
+        ],
+      };
+
+      LocalNotifications.schedule({
+        notifications: [notification],
+      });
 
       this.store.createDoc(
         this.newmedicamento,

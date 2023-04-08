@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { PagesModule } from './pages/pages.module';
 import { BackendModule } from './backend/backend.module';
 import { FormsModule } from '@angular/forms';
+import { LocalNotifications } from "@capacitor/local-notifications";
+
 
 @NgModule({
   declarations: [AppComponent],
