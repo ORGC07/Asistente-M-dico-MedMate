@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar color="principal">
     <ion-title>Citas</ion-title>
-    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/home']"><ion-icon
+    <ion-button  fill="clear" slot="start" [routerLink]="['/home']"><ion-icon
         name="arrow-back-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-content class="ion-padding" color="blanco">
+  <ion-content class="ion-padding" >
     <ion-item-group *ngIf="citas" class="custom-list">
       <ion-item color="relleno" *ngFor="let cita of citas" color="light">
         <ion-label>

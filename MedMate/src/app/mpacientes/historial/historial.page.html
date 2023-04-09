@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="blanco" class="ion-padding" overflow-scroll="true">
+<ion-content  class="ion-padding" overflow-scroll="true">
   <ion-item-group *ngIf="historiales">
     <ion-item-divider color="secundario">
       <ion-label>
@@ -15,8 +15,8 @@
         </h1>
       </ion-label>
     </ion-item-divider>
-    <ion-item color="blanco" *ngFor="let historial of historiales" class="historial-item">
-      <ion-item color="blanco">
+    <ion-item  *ngFor="let historial of historiales" class="historial-item">
+      <ion-item >
         <ion-label class="historial-label ion-text-wrap">
           <h2><b>Especialidad:</b> {{historial.especialidad}}</h2>
           <h3><b>Doctor:</b> {{historial.doctorname}}</h3>

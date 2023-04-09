@@ -7,9 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" color="blanco" *ngIf="dates">
+<ion-content class="ion-padding"  *ngIf="dates">
   <ion-item-group  *ngFor="let date of dates">
-    <ion-item-divider color="blanco" class="divider">
+    <ion-item-divider  class="divider">
       <ion-item>
         <ion-label position="fixed">Estado:</ion-label>
         <ion-select (ionChange)="Cambio(date, $event)" interface="action-sheet"  justify="space-between" placeholder="{{date.estado}}">
@@ -17,8 +17,8 @@
         </ion-select>
       </ion-item>
     </ion-item-divider>
-    <ion-item class="item" color="blanco">
-      <ion-item color="blanco">
+    <ion-item class="item" >
+      <ion-item>
         <ion-label>
           <h4> <b>Paciente:</b> {{date.paciente}}</h4>
           <h4> <b>Fecha:</b> {{date.fecha}}</h4>

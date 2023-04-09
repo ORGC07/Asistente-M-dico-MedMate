@@ -1,22 +1,22 @@
 <ion-header>
   <ion-toolbar color="principal">
     <ion-title>Directorio</ion-title>
-    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-button  fill="clear" slot="start" [routerLink]="['/home']"><ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="blanco" class="ion-padding">
+<ion-content  class="ion-padding">
   <ion-item-group *ngIf="doctores">
-    <ion-item-divider color="blanco" class="doctor-divider">
+    <ion-item-divider  class="doctor-divider">
       <ion-label>
         <ion-button fill="outline" size="medium" (click)="acita()" expand="block">
           Agendar cita
         </ion-button>
       </ion-label>
     </ion-item-divider>
-    <ion-item color="blanco" *ngFor="let doctor of doctores" class="doctor-item">
-      <ion-item color="blanco">
+    <ion-item  *ngFor="let doctor of doctores" class="doctor-item">
+      <ion-item >
         <ion-label>
           <h3 class="doctor-name">Dr.{{doctor.nombre}} {{doctor.apellido}}</h3>
           <h4><b>Especialidad:</b> {{doctor.especialidad}}</h4>
