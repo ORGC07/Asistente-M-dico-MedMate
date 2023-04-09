@@ -115,6 +115,25 @@ const routes: Routes = [
     path: 'citasd',
     loadChildren: () => import('./mdoctor/citas/citas.module').then( m => m.CitasPageModule)
   },
+  {
+    path: 'homea',
+    loadChildren: () => import('./madministrador/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'especialidad',
+    loadChildren: () => import('./madministrador/especialidad/especialidad.module').then( m => m.EspecialidadPageModule)
+  },
+  {
+    path: 'radministrador',
+    loadChildren: () => import('./radministrador/radministrador.module').then( m => m.RadministradorPageModule)
+  },  {
+    path: 'c-especialidad',
+    loadChildren: () => import('./madministrador/c-especialidad/c-especialidad.module').then( m => m.CEspecialidadPageModule)
+  },
+
+
+  
+
 
 ];
 

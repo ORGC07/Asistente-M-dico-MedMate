@@ -23,6 +23,16 @@ export interface paciente{
     
 }
 
+export interface administrador {
+  uid: string;
+  nombre: string;
+  apellido: string;
+  correo: string;
+  contraseña: string;
+  llave: "";
+  rol: "Administrador";
+}
+
 export interface medicacion{
     medicamento: string,
     cdias: number,
@@ -34,6 +44,7 @@ export interface medicacion{
 
 export interface especialidad{
     especialidad: string,
+    id: string,
 }
 
 export interface cita{

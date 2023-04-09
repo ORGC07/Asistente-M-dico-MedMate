@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title></ion-title>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/homea']"><ion-icon
+        name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container">
+    <h1 class="titulo">Ingresar Especialidad</h1>
+    <form [formGroup]="especialidadform" (ngSubmit)="ingresar()" class="formulario">
+      <ion-item>
+        <ion-label position="stacked">Especialidad <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="especialidad" type="text"></ion-input>
+      </ion-item>
+      <div class="botones">
+        <ion-button color="secondary" expand="block" type="submit">
+          Aceptar
+        </ion-button>
+        <ion-button color="light" expand="block" type="reset">
+          Cancelar
+        </ion-button>
+      </div>
+    </form>
+  </div>
+
+</ion-content>

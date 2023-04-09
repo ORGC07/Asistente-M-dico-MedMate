@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { doctor, paciente } from "./models/interface";
+import { administrador, doctor, paciente } from "./models/interface";
 import { Router } from "@angular/router";
 import { AuthService } from "./services/auth.service";
 import { FirestoreService } from "./services/firestore.service";
@@ -14,8 +14,10 @@ export class AppComponent {
   uid = "";
   public pacientes: paciente | undefined;
   public doctores: doctor | undefined;
+  public administradores: administrador | undefined;
   public rold = "Doctor";
   public rolp = "Paciente";
+  public rola = "Administrador";
   pages: any;
 
   @ViewChild(IonNav)
@@ -36,6 +38,8 @@ export class AppComponent {
 
     const pathp = "Pacientes";
     const pathd = "Doctores";
+    const patha = "Administrador";
+
     this.store.getDoc<paciente>(pathp, this.uid).subscribe((res) => {
       if (res) {
         this.pacientes = res;
@@ -46,25 +50,11 @@ export class AppComponent {
         this.doctores = res;
       }
     });
-
-    if (this.doctores) {
-      console.log("Doctor");
-
-      this.pages = [
-        {
-          tittle: "set-reportes",
-          page: "set-reportes",
-          icon: "reader-outline",
-        },
-        {
-          tittle: "lista-reporte",
-          page: "lista-reporte",
-          icon: "list-outline",
-        },
-      ];
-
-      this.openPage("tabiniciald");
-    }
+    this.store.getDoc<administrador>(patha, this.uid).subscribe((res) => {
+      if (res) {
+        this.administradores = res;
+      }
+    });
   }
 
   openPage(page: string) {

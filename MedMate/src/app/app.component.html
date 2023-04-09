@@ -87,6 +87,22 @@
           </ion-item>
 
         </ion-menu-toggle>
+        <ion-menu-toggle *ngIf="administradores">
+
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/homea']">
+            <ion-label class="normal">Pantalla principal</ion-label>
+            <ion-icon slot="start" name="home-outline"></ion-icon>
+          </ion-item>
+          
+          <ion-row style="height: 10px"></ion-row>
+          
+          <ion-item color="secundario" button="true" detail="true" [routerLink]="['/especialidad']">
+            <ion-label class="normal">Administrar especialidades</ion-label>
+            <ion-icon slot="start" name="reader-outline"></ion-icon>
+          </ion-item>
+
+
+        </ion-menu-toggle>
 
         <ion-row style="height: 10px"></ion-row>
 

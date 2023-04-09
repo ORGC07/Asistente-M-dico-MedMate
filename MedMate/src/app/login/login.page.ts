@@ -60,6 +60,15 @@ export class LoginPage implements OnInit {
           
           } 
         });
+        this.store.getDoc("Administrador", Id).subscribe((res) => {
+          if (res) {
+            this.info = res;
+            if (this.info) {
+              console.log(this.info);
+              this.router.navigate(["/homea"]);
+            }
+          }
+        });
       
       
       }  

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title>Especialidades</ion-title>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/homea']"><ion-icon
+        name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-group *ngIf="especialidades" class="custom-list">
+      <ion-item *ngFor="let especialidad of especialidades" class="custom-item">
+        <ion-label>
+          <p class="normal">{{especialidad.especialidad}}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="delete(especialidad)" color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>

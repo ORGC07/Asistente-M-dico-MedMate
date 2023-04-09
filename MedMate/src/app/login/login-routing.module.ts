@@ -5,18 +5,23 @@ import { LoginPage } from './login.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LoginPage
+    path: "",
+    component: LoginPage,
   },
   {
-  path: "home",
+    path: "home",
     loadChildren: () =>
       import("./../mpacientes/home/home.module").then((m) => m.HomePageModule),
   },
   {
-  path: "homed",
+    path: "homed",
     loadChildren: () =>
       import("./../mdoctor/home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+    path: "homea",
+    loadChildren: () =>
+      import("./../madministrador/home/home.module").then((m) => m.HomePageModule),
   },
 ];
 
