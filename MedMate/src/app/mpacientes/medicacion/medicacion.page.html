@@ -22,6 +22,14 @@
         <ion-label position="stacked">Hora <ion-text color="danger">*</ion-text></ion-label>
         <ion-input required formControlName="hora" type="time"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Cantidad de dias <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="cdias" type="number"></ion-input>
+      </ion-item>
+      <ion-item counter="true">
+        <ion-label position="stacked">Nota <ion-text color="danger">*</ion-text></ion-label>
+        <ion-textarea required formControlName="nota" type="text" maxlength="120" inputmode="text"></ion-textarea>
+      </ion-item>
       <div class="botones">
         <ion-button color="secondary" expand="block" type="submit">
           Aceptar

@@ -19,6 +19,7 @@ export class VmedicamentosPage implements OnInit {
     hora: 0,
     userid: "",
     id: "",
+    nota: "",
   };
   uid: any;
   loading: any;

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title>Doctores</ion-title>
+    <ion-button color="blanco" fill="clear" slot="start" [routerLink]="['/homea']"><ion-icon
+        name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-group *ngIf="doctores" class="custom-list">
+      <ion-item *ngFor="let doctor of doctores" class="custom-item">
+        <ion-label>
+          <p class="normal">{{doctor.nombre}} {{doctor.apellido}}</p>
+          <p class="normal"> <b>Especialidad: </b> {{doctor.especialidad}}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="delete(doctor)" color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>

@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
     hora: 0,
     userid: "",
     id: "",
+    nota: "",
   };
   infoc: cita = {
     doctor: "",

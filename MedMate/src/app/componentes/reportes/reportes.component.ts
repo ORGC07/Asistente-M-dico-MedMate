@@ -9,6 +9,7 @@ import { Reporte } from 'src/app/models/interface';
 })
 export class ReportesComponent implements OnInit {
   @Input()reporte!: Reporte;
+  
   constructor(public menuController: MenuController,) { }
 
   ngOnInit() {}

@@ -31,11 +31,7 @@ export class EspecialidadPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const uid = await this.auth.getUid();
-    if (uid) {
-      this.uid = uid;
-      this.listaespecialidad();
-    }
+    this.listaespecialidad();
   }
 
   listaespecialidad() {

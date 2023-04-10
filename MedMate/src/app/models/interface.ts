@@ -40,6 +40,7 @@ export interface medicacion{
     hora: number,
     userid: string,
     id: string,
+    nota: string,
 }
 
 export interface especialidad{

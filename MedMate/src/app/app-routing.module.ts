@@ -51,13 +51,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: "pacientes",
-    loadChildren: () =>
-      import("./mdoctor/pacientes/pacientes.module").then(
-        (m) => m.PacientesPageModule
-      ),
-  },
-  {
     path: "set-reportes",
     component: SetReportesComponent,
   },
@@ -126,9 +119,18 @@ const routes: Routes = [
   {
     path: 'radministrador',
     loadChildren: () => import('./radministrador/radministrador.module').then( m => m.RadministradorPageModule)
-  },  {
+  },
+  {
     path: 'c-especialidad',
     loadChildren: () => import('./madministrador/c-especialidad/c-especialidad.module').then( m => m.CEspecialidadPageModule)
+  },
+  {
+    path: 'doctores',
+    loadChildren: () => import('./madministrador/doctores/doctores.module').then( m => m.DoctoresPageModule)
+  },
+  {
+    path: 'pacientes',
+    loadChildren: () => import('./madministrador/pacientes/pacientes.module').then( m => m.PacientesPageModule)
   },
 
 

@@ -29,6 +29,7 @@ export class MedicacionPage implements OnInit {
     fecha : "",
     hora: 0,
     userid: "",
+    nota: "",
     id: this.store.getId()
 
   }
@@ -40,6 +41,8 @@ export class MedicacionPage implements OnInit {
         'medicamento': new FormControl("", Validators.required),
         'fecha': new FormControl("", Validators.required),
         'hora': new FormControl("", Validators.required),
+        'nota': new FormControl("", Validators.required),
+        'cdias': new FormControl("", Validators.required),
       })
      }
 
@@ -73,9 +76,10 @@ export class MedicacionPage implements OnInit {
     else{
 
       this.newmedicamento.medicamento = f.medicamento,
-      this.newmedicamento.cdias = f.fe;
+      this.newmedicamento.cdias = f.cdias;
       this.newmedicamento.hora = f.hora;
       this.newmedicamento.fecha = f.fecha;
+      this.newmedicamento.nota = f.nota;
       this.newmedicamento.userid = this.uid;
       this.newmedicamento.id= this.store.getId()
 
