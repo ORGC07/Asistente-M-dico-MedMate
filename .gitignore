@@ -1,2 +1,4 @@
 node_modules
 *.pack
+*.json
+*.old

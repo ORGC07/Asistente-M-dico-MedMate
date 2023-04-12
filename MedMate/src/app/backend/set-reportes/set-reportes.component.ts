@@ -8,8 +8,6 @@ import {
 import { mainModule } from "process";
 import { FirestoreService } from "src/app/services/firestore.services";
 
-import { ɵNullViewportScroller } from "@angular/common";
-import { error } from "console";
 import { Reporte, doctor, paciente } from "src/app/models/interface";
 import { AuthService } from "src/app/services/auth.service";
 
@@ -134,6 +132,58 @@ export class SetReportesComponent implements OnInit {
         }
       });
   }
+
+  async editRepo() {
+    const uid = await this.auth.getUid();
+    this.showLoading();
+  
+    this.firestoreService
+      .getCollection<paciente>("Pacientes")
+      .subscribe((res) => {
+        if (res) {
+          this.pacientes = res;
+          this.pacientes.forEach((pac) => {
+            if (pac.uid == this.newReportes.idpaciente) {
+              this.firestoreService
+                .getCollection<doctor>("Doctores")
+                .subscribe((res2) => {
+                  this.doctores = res2;
+                  this.doctores.forEach((doc) => {
+                    if (doc.uid == uid) {
+                      if (uid) {
+                        this.uiddoctor = uid;
+                        const updatedReporte = {
+                          nombre: pac.nombre + " " + pac.apellido,
+                          idpaciente: pac.uid,
+                          edad: pac.edad,
+                          peso: this.newReportes.peso,
+                          altura: this.newReportes.altura,
+                          medicamentos: this.newReportes.medicamentos,
+                          condicion: this.newReportes.condicion,
+                          iddoctor: uid,
+                          especialidad: doc.especialidad,
+                          doctorname: doc.nombre + " " + doc.apellido,
+                          fecha: new Date(),
+                        };
+                        this.firestoreService
+                          .updateRepo(updatedReporte, this.path, this.newReportes.id)
+                          .then(() => {
+                            this.loading.dismiss();
+                            this.presentToast("Actualizado con éxito");
+                          })
+                          .catch((error) => {
+                            this.presentToast("No se pudo guardar");
+                          });
+                      }
+                    }
+                  });
+                });
+            }
+          });
+        }
+      });
+  }
+
   async leertRepo() {
     
     this.uiddoctor = await this.auth.getUid();

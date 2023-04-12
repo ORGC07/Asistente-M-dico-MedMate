@@ -5,6 +5,9 @@ import { AngularFirestore} from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class FirestoreService {
+  getDoc(path: string, id: string) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(public database: AngularFirestore) {}
   createRepo(data: any, path: string, id: string){
