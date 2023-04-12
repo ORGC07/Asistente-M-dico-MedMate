@@ -21,10 +21,10 @@
         <ion-button (click)="enablenewReportes = false">
           <ion-icon slot="icon-only" color="dark" name="close"></ion-icon>
         </ion-button>
-        <ion-button color="color1" (click)="guardarRepo()">
+        <ion-button color="color1" (click)="guardarRepo()" *ngIf="mostrarAdd">
           <ion-icon slot="icon-only" name="add-outline"></ion-icon>
         </ion-button>
-        <ion-button color="color1" (click)="editRepo()">
+        <ion-button color="color1" (click)="editRepo()" *ngIf="mostrarEdit">
           <ion-icon slot="icon-only" name="save-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -37,11 +37,11 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label class="normal" position="floating">Peso:</ion-label>
+      <ion-label class="normal" position="floating">Peso (Lbs):</ion-label>
       <ion-input [(ngModel)]="newReportes.peso" class="normal" type="number" inputmode="numeric"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label class="normal" position="floating">Altura:</ion-label>
+      <ion-label class="normal" position="floating">Altura (M):</ion-label>
       <ion-input [(ngModel)]="newReportes.altura" class="normal" type="number" inputmode="numeric"></ion-input>
     </ion-item>
     <ion-item counter="true">
@@ -59,7 +59,7 @@
     <ion-item *ngFor="let Reporte of almacenarReporte">
       <ion-label class="normal">{{Reporte.nombre}}</ion-label>
       <ion-buttons slot="end">
-        <ion-button (click)="newReportes = Reporte; enablenewReportes = true">
+        <ion-button (click)="newReportes = Reporte; enablenewReportes = true" (click)="mostrarAdd = false" (click)="mostrarEdit = true">
           <ion-icon slot="icon-only" class="color1" name="create-outline"></ion-icon>
         </ion-button>
         <ion-button (click)="deleteReporte(Reporte)">

@@ -40,7 +40,8 @@ export class SetReportesComponent implements OnInit {
   };
 
   enablenewReportes = false;
-
+  mostrarAdd = false;
+  mostrarEdit = false;
   private path = "reportes/";
   loading: any;
 
@@ -235,6 +236,8 @@ export class SetReportesComponent implements OnInit {
 
   nuevo() {
     this.enablenewReportes = true;
+    this.mostrarAdd = true;
+    this.mostrarEdit = false;
     this.newReportes = {
       nombre: "",
       idpaciente: "",
