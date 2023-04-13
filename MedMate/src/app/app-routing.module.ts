@@ -132,6 +132,15 @@ const routes: Routes = [
     path: 'pacientes',
     loadChildren: () => import('./madministrador/pacientes/pacientes.module').then( m => m.PacientesPageModule)
   },
+  {
+    path: 'perfilp',
+    loadChildren: () => import('./mpacientes/perfilp/perfilp.module').then( m => m.PerfilpPageModule)
+  },
+  {
+    path: 'perfiladmin',
+    loadChildren: () => import('./madministrador/perfil-a/perfil-a.module').then( m => m.PerfilAPageModule)
+  },
+
 
 
   

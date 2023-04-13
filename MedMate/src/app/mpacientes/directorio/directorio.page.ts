@@ -103,7 +103,7 @@ export class DirectorioPage implements OnInit {
       ],
       buttons: [
         {
-          text: "Cancel",
+          text: "Cancelar",
           role: "cancel",
           cssClass: "secondary",
           handler: () => {
@@ -111,7 +111,7 @@ export class DirectorioPage implements OnInit {
           },
         },
         {
-          text: "Ok",
+          text: "Aceptar",
           handler: async (eve) => {
             if(eve){
               this.savecita(

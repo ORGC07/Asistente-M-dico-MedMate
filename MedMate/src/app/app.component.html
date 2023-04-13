@@ -8,6 +8,16 @@
       </ion-header>
       <ion-content color="secundario">
         <ion-menu-toggle *ngIf="doctores" color="secundario">
+          <ion-item *ngIf="perfildoctor">
+            <ion-item button lines="inset">
+              <ion-icon name="person-outline" slot="start"></ion-icon>
+              <ion-label>
+                <b>{{perfildoctor.nombre}} {{perfildoctor.apellido}} </b>
+                <br>
+                {{perfildoctor.especialidad}}
+              </ion-label>
+            </ion-item>
+          </ion-item>
 
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/homed']">
             <ion-label class="normal">Pantalla principal</ion-label>
@@ -34,10 +44,19 @@
             <ion-label class="normal">Citas</ion-label>
             <ion-icon slot="start" name="list-outline"></ion-icon>
           </ion-item>
-        
+
 
         </ion-menu-toggle>
         <ion-menu-toggle *ngIf="pacientes">
+
+          <ion-item *ngIf="perfilpaciente">
+            <ion-item button="true" lines="inset" [routerLink]="['/perfilp']">
+              <ion-icon name="person-outline" slot="start"></ion-icon>
+              <ion-label>
+                <b>{{perfilpaciente.nombre}} {{perfilpaciente.apellido}} </b>
+              </ion-label>
+            </ion-item>
+          </ion-item>
 
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/home']">
             <ion-label class="normal">Pantalla principal</ion-label>
@@ -89,36 +108,47 @@
         </ion-menu-toggle>
         <ion-menu-toggle *ngIf="administradores">
 
+          <ion-item *ngIf="perfiladministrador">
+            <ion-item button="true" lines="inset" [routerLink]="['/perfiladmin']">
+              <ion-icon name="person-outline" slot="start" ></ion-icon>
+              <ion-label>
+                <b>{{perfiladministrador.nombre}} {{perfiladministrador.apellido}} </b>
+                <br>
+                {{perfiladministrador.rol}}
+              </ion-label>
+            </ion-item>
+          </ion-item>
+
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/homea']">
             <ion-label class="normal">Pantalla principal</ion-label>
             <ion-icon slot="start" name="home-outline"></ion-icon>
           </ion-item>
-          
+
           <ion-row style="height: 10px"></ion-row>
-          
+
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/c-especialidad']">
             <ion-label class="normal">Crear especialidad</ion-label>
             <ion-icon slot="start" name="add-circle-outline"></ion-icon>
           </ion-item>
           <ion-row style="height: 10px"></ion-row>
-          
+
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/especialidad']">
             <ion-label class="normal">Administrar especialidades</ion-label>
             <ion-icon slot="start" name="reader-outline"></ion-icon>
           </ion-item>
           <ion-row style="height: 10px"></ion-row>
-          
+
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/doctores']">
             <ion-label class="normal">Administrar doctores</ion-label>
             <ion-icon slot="start" name="reader-outline"></ion-icon>
           </ion-item>
           <ion-row style="height: 10px"></ion-row>
-          
+
           <ion-item color="secundario" button="true" detail="true" [routerLink]="['/pacientes']">
             <ion-label class="normal">Administrar pacientes</ion-label>
             <ion-icon slot="start" name="reader-outline"></ion-icon>
           </ion-item>
-          
+
         </ion-menu-toggle>
 
         <ion-row style="height: 10px"></ion-row>

@@ -11,7 +11,13 @@ import { IonApp, IonNav, NavController } from "@ionic/angular";
   styleUrls: ["app.component.scss"],
 })
 export class AppComponent {
+  doctor: doctor[] = [];
+  paciente: paciente[] = [];
+  administrador: administrador[] = [];
   uid = "";
+  public perfilpaciente: paciente | undefined;
+  public perfildoctor: doctor | undefined;
+  public perfiladministrador: administrador | undefined;
   public pacientes: paciente | undefined;
   public doctores: doctor | undefined;
   public administradores: administrador | undefined;
@@ -42,17 +48,39 @@ export class AppComponent {
 
     this.store.getDoc<paciente>(pathp, this.uid).subscribe((res) => {
       if (res) {
+        this.paciente = [];
         this.pacientes = res;
+        this.paciente.push(this.pacientes);
+        this.paciente.forEach((p) => {
+          if(this.uid == p.uid){
+            this.perfilpaciente = p;
+          }
+        })
       }
     });
     this.store.getDoc<doctor>(pathd, this.uid).subscribe((res) => {
       if (res) {
+        this.doctor = [];
         this.doctores = res;
+        this.doctor.push(this.doctores);
+        this.doctor.forEach((d) => {
+          if (this.uid == d.uid) {
+            this.perfildoctor = d;
+          }
+        });
       }
     });
+
     this.store.getDoc<administrador>(patha, this.uid).subscribe((res) => {
       if (res) {
+        this.administrador = [];
         this.administradores = res;
+        this.administrador.push(this.administradores);
+        this.administrador.forEach((a) => {
+          if (this.uid == a.uid) {
+            this.perfiladministrador = a;            
+          }
+        })
       }
     });
   }
