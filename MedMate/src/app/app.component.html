@@ -9,7 +9,7 @@
       <ion-content color="secundario">
         <ion-menu-toggle *ngIf="doctores" color="secundario">
           <ion-item *ngIf="perfildoctor">
-            <ion-item button lines="inset">
+            <ion-item button="true" lines="inset"  [routerLink]="['/perfild']">
               <ion-icon name="person-outline" slot="start"></ion-icon>
               <ion-label>
                 <b>{{perfildoctor.nombre}} {{perfildoctor.apellido}} </b>

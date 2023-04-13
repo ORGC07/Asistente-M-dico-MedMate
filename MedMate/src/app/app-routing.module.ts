@@ -139,7 +139,11 @@ const routes: Routes = [
   {
     path: 'perfiladmin',
     loadChildren: () => import('./madministrador/perfil-a/perfil-a.module').then( m => m.PerfilAPageModule)
+  },  {
+    path: 'perfild',
+    loadChildren: () => import('./mdoctor/perfild/perfild.module').then( m => m.PerfildPageModule)
   },
+
 
 
 
