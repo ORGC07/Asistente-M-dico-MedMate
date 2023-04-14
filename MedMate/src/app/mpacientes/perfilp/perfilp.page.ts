@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { paciente } from 'src/app/models/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -18,11 +18,14 @@ export class PerfilpPage implements OnInit {
   uid = "";
   public perfilpaciente: paciente | undefined;
   public pacientes: paciente | undefined;
+  loading: any;
 
   constructor(
     private auth: AuthService,
     private router: Router,
     private store: FirestoreService,
+    private loadingCtrl: LoadingController,
+    private toastController: ToastController,
     private alertController: AlertController
   ) {}
 
@@ -92,17 +95,36 @@ export class PerfilpPage implements OnInit {
     await alert.present();
   }
 
-  async save(name:  string, input: any) {
+  async save(name: string, input: any) {
     const id = this.uid;
     const updateDoc = {
-      [name]: input
+      [name]: input,
     };
-    this.store.updatedoc(this.pathp, id, updateDoc);
-     const alert2 = await this.alertController.create({
-       header: "Perfil actualizado",
-     });
 
-     await alert2.present();
-     this.router.navigate(["../home"]);
+    this.store.updatedoc(this.pathp, id, updateDoc);
+    
+    this.presentToast("Actualizado con exito");
+  }
+
+
+  async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      cssClass: "normal",
+      message: "Guardando...",
+      spinner: "circles",
+    });
+
+    await this.loading.present();
+  }
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      cssClass: "normal",
+      message: msg,
+      duration: 2000,
+      icon: "thumbs-up-outline",
+      color: "light",
+    });
+
+    await toast.present();
   }
 }

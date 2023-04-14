@@ -8,7 +8,7 @@ import { Reporte } from 'src/app/models/interface';
   styleUrls: ['./reportes.component.scss'],
 })
 export class ReportesComponent implements OnInit {
-  @Input()reporte!: Reporte;
+  @Input()reporte!: Reporte 
   
   constructor(public menuController: MenuController,) { }
 
